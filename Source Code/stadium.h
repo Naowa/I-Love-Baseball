@@ -1,4 +1,4 @@
-//VERSION 0.0.3
+//VERSION 0.0.4
 
 #ifndef STADIUM_H
 #define STADIUM_H
@@ -32,6 +32,7 @@ public:
     Souvenir operator[] (std::string name);
     Souvenir get_souviner(std::string name);
     void remove_souvenir(std::string target_item_name);                                  //remove_souvenir - removes a souvenir from souvenirs vector
+    void initialize_souvenirs();
 
     //SETTERS
     inline void set_stadium_name(std::string input){ stadium_name = input; }
