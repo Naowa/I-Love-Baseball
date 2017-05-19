@@ -1,28 +1,44 @@
+//VERSION 0.0.2
 #include "user.h"
+#include "stadium.h"
 
-User::User()
-{
+using std::string;
+using ILB::Souvenir;
+using std::vector;
+using std::cout;
+using std::endl;
 
+void User::buy(string item_name, string stadium_name, double price) {
+    Souvenir purchase;
+    purchase.item_name = item_name;
+    purchase.origin_stadium_name = stadium_name;
+    purchase.item_price = price;
+    this->purchases.push_back(purchase);
 }
 
-void User::buy(string item, string team, double p)
-{
-    ILB::Souvenir s;
-    s.item_name = item;
-    s.origin_stadium_name = team;
-    s.item_price = p;
-    purchases.push_back(s);
+vector<ILB::Souvenir> User::get_purchases() {
+    return this->purchases;
 }
 
-//?
-//ILB::Souvenir* User::getPurchases()
-//{
-//    ILB::Souvenir* purchaseList = purchases;
-//    return purchaseList;
-//}
+Souvenir User::get_souvenir(string item_name) {
+    try {
+        for (Souvenir item : purchases) {
+            if (item.item_name == item_name) {
+                return item;
+            }
+        }
+        throw;
+    }
+    catch (...) {
+        cout << "Souvenir not found." << endl;
+    }
+}
 
-ILB::Souvenir User::operator[](int index)
-{
-    vector<ILB::Souvenir>::iterator it = purchases.begin()+index;
-    return *it;
+Souvenir User::operator [](string item_name) {
+    return this->get_souvenir(item_name);
+}
+
+Souvenir User::operator[](int index) {
+    assert(index < this->purchases.size());
+    return this->purchases[index];
 }

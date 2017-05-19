@@ -1,4 +1,4 @@
-//VERSION 0.0.0.2
+//VERSION 0.0.3
 
 #include "stadium.h"
 
@@ -52,6 +52,10 @@ ILB::Souvenir ILB::Stadium::operator[] (int index)
 }
 
 ILB::Souvenir ILB::Stadium::operator[] (std::string name) {
+    return this->get_souviner(name);
+}
+
+ILB::Souvenir ILB::Stadium::get_souviner(std::string name) {
     try {
         for (Souvenir item : souvenirs) {
             if (item.item_name == name) {

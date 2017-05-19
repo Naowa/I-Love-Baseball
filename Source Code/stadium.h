@@ -1,4 +1,4 @@
-//VERSION 0.0.0.2
+//VERSION 0.0.3
 
 #ifndef STADIUM_H
 #define STADIUM_H
@@ -30,6 +30,7 @@ public:
     void display_stadium_info();                                                    ///**display_stadium_info - displays stadium info to console (test function)
     Souvenir operator[] (int index);                                               //operator [] - overloaded bracket operator for souvenirs vector
     Souvenir operator[] (std::string name);
+    Souvenir get_souviner(std::string name);
     void remove_souvenir(std::string target_item_name);                                  //remove_souvenir - removes a souvenir from souvenirs vector
 
     //SETTERS
@@ -55,6 +56,7 @@ public:
     inline bool if_american_league(){ return american_league;}
     inline bool if_national_leauge(){ return !(american_league); }
     inline bool if_grass(){ return grass; }
+    inline std::vector<Souvenir> get_souvenirs_list() {return this->souvenirs;}
 
     //SOUVENIR SETTERS
     void change_souvenir_name(std::string name, std::string new_name);

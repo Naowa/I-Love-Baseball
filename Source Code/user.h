@@ -1,3 +1,4 @@
+//VERSION 0.0.2
 #ifndef USER_H
 #define USER_H
 #include <iostream>
@@ -7,16 +8,14 @@
 class User
 {
 public:
-    User();
-//    User(const User& other);
-//    ~User();
-//    void operator =(const User& other);
-    void buy(string item, string team, double p);
-//    ILB::Souvenir* getPurchases();//?
-//    ILB::Souvenir operator [](string item);  doesnt make sense to make this
+    inline User() {}
+    void buy(std::string item_name, std::string stadium_name, double price);
+    std::vector<ILB::Souvenir> get_purchases();
+    ILB::Souvenir get_souvenir(std::string item_name);
+    ILB::Souvenir operator [](std::string item_name);
     ILB::Souvenir operator [](int index);
 private:
-    vector<ILB::Souvenir> purchases;
+    std::vector<ILB::Souvenir> purchases;
 };
 
 #endif // USER_H
