@@ -1,4 +1,4 @@
-//VERSION 0.0.3
+//VERSION 0.0.4
 
 #include "stadium.h"
 
@@ -16,6 +16,7 @@ ILB::Stadium::Stadium(){
     grass = false;
     date_opened = 0;
     seating_capacity = 0;
+    this->initialize_souvenirs();
 }
 
 ILB::Stadium::Stadium(string input_stadium_name) {
@@ -28,6 +29,7 @@ ILB::Stadium::Stadium(string input_stadium_name) {
     grass = false;
     date_opened = 0;
     seating_capacity = 0;
+    this->initialize_souvenirs();
 }
 
 ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string input_street_address,
@@ -42,6 +44,36 @@ ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string 
     grass = input_grass;
     date_opened = input_date_opened;
     seating_capacity = input_seating_capacity;
+    this->initialize_souvenirs();
+}
+
+void ILB::Stadium::initialize_souvenirs() {
+    Souvenir initial_item1;
+    Souvenir initial_item2;
+    Souvenir initial_item3;
+    Souvenir initial_item4;
+
+    initial_item1.item_name = "Baseball Cap";
+    initial_item1.item_price = 25.99;
+    initial_item1.origin_stadium_name = this->stadium_name;
+
+    initial_item2.item_name = "Baseball Bat";
+    initial_item2.item_price = 35.35;
+    initial_item2.origin_stadium_name = this->stadium_name;
+
+    initial_item3.item_name = "Team Pennant";
+    initial_item3.item_price = 12.99;
+    initial_item3.origin_stadium_name = this->stadium_name;
+
+    initial_item4.item_name = "Autographed Baseball";
+    initial_item4.item_price = 19.99;
+    initial_item4.origin_stadium_name = this->stadium_name;
+
+    this->souvenirs.push_back(initial_item1);
+    this->souvenirs.push_back(initial_item2);
+    this->souvenirs.push_back(initial_item3);
+    this->souvenirs.push_back(initial_item4);
+
 }
 
 ILB::Souvenir ILB::Stadium::operator[] (int index)
