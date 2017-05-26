@@ -15,7 +15,7 @@ ILB::Stadium::Stadium(){
     box_office_number = "NO BOX OFFICE NUMBER";
     american_league = false;
     grass = false;
-    date_opened = 0;
+    date_opened = "01/01/2000";
     seating_capacity = 0;
     this->initialize_souvenirs();
 }
@@ -28,13 +28,13 @@ ILB::Stadium::Stadium(string input_stadium_name) {
     box_office_number = "NO BOX OFFICE NUMBER";
     american_league = false;
     grass = false;
-    date_opened = 0;
+    date_opened = "01/01/2000";
     seating_capacity = 0;
     this->initialize_souvenirs();
 }
 
 ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string input_street_address,
-        string input_city_state_zip, string input_box_office_number, int input_date_opened,
+        string input_city_state_zip, string input_box_office_number, string input_date_opened,
         int input_seating_capacity, bool input_american_league, bool input_grass){
     stadium_name = input_stadium_name;
     team_name = input_team_name;
@@ -111,7 +111,7 @@ string ILB::Stadium::display_stadium_info()
     output_Str += "     "; output_Str += street_address; output_Str += "\n";
     output_Str += "     "; output_Str += city_state_zip; output_Str += "\n";
     output_Str += "     "; output_Str += box_office_number; output_Str += "\n";
-    output_Str += "     "; output_Str += "Opened - "; output_Str += to_string(date_opened); output_Str += "\n";
+    output_Str += "     "; output_Str += "Opened - "; output_Str += date_opened; output_Str += "\n";
     output_Str += "     "; output_Str += "Capacity - "; output_Str += to_string(seating_capacity); output_Str += "\n";
 
     return output_Str;
