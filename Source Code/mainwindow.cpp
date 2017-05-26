@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     my_stadium.set_street_address("123 seasame street");
     my_stadium.set_city_state_zip("pasadena, ca, 123456");
     my_stadium.set_box_office_number("(626)-111-1342");
-    my_stadium.set_date_opened(1996);
+//    my_stadium.set_date_opened(1996);
     my_stadium.set_seating_capacity(34653);
 }
 
