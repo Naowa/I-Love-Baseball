@@ -15,6 +15,9 @@ struct Souvenir{
     double item_price;
 };
 
+///***- create an array to store pointers to each stadium object
+///***- sort by stadium information gained from pointer
+
 class Stadium
 {
 public:
