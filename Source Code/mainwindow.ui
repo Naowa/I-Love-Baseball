@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>600</height>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,8 +59,8 @@
    <widget class="QPushButton" name="btnAddSouvenir">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>240</y>
+      <x>410</x>
+      <y>410</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -72,8 +72,8 @@
    <widget class="QPushButton" name="btnMLS">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>240</y>
+      <x>10</x>
+      <y>230</y>
       <width>171</width>
       <height>22</height>
      </rect>
@@ -82,37 +82,11 @@
      <string>All Major League Stadiums</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>300</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_4">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>330</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnDelSouvenir">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>240</y>
+      <x>500</x>
+      <y>410</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -121,95 +95,17 @@
      <string>Del Souvenir</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="btnDisplayStadium">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>330</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>270</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_8">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>300</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnDisplay">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
+      <x>360</x>
       <y>240</y>
-      <width>80</width>
+      <width>91</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Display</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_10">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>330</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_11">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>270</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_16">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>300</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
+     <string>Display Stadium</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="inputBox">
@@ -225,7 +121,7 @@
    <widget class="QLabel" name="labelTrips">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>200</y>
       <width>100</width>
       <height>30</height>
@@ -238,8 +134,8 @@
    <widget class="QPushButton" name="btnALS">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>270</y>
+      <x>10</x>
+      <y>260</y>
       <width>171</width>
       <height>22</height>
      </rect>
@@ -251,8 +147,8 @@
    <widget class="QPushButton" name="btnNLS">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>300</y>
+      <x>10</x>
+      <y>290</y>
       <width>171</width>
       <height>22</height>
      </rect>
@@ -264,14 +160,196 @@
    <widget class="QPushButton" name="btnChangeSouvenir">
     <property name="geometry">
      <rect>
-      <x>339</x>
-      <y>270</y>
+      <x>590</x>
+      <y>410</y>
       <width>101</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
      <string>Change Souvenir</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioTN">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>350</y>
+      <width>85</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Team Name</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioD">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>370</y>
+      <width>85</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkGrass">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>390</y>
+      <width>72</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Grass</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instructions_Admin">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>370</y>
+      <width>181</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Administrator Functions</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>370</y>
+      <width>101</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnConfirm_Admin">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>370</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddStadium">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>440</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Stadium</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnChangeStadium">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>470</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Stadium</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDisplayPurchases">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>270</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Purchases</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnBuySouvenir">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>240</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Buy Souvenir</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDistanceBetween">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>300</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Distance Between Stadiums</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCT">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>320</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Custom Trip</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>387</x>
+      <y>360</y>
+      <width>311</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>370</y>
+      <width>20</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
     </property>
    </widget>
   </widget>
@@ -331,7 +409,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>btnDisplay</sender>
+   <sender>btnDisplayStadium</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>btn_Display_Handler()</slot>

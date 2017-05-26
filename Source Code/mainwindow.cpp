@@ -4,6 +4,8 @@
 #include "ui_mainwindow.h"
 #include <fstream>
 
+using std::string;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -24,6 +26,33 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+bool MainWindow::compare_dates(string lhs_date, string rhs_date)
+{
+    int lhs_mm = stoi(lhs_date.substr(0, 2));
+    int lhs_dd = stoi(lhs_date.substr(3, 2));
+    int lhs_yyyy = stoi(lhs_date.substr(6, 4));
+
+    int rhs_mm = stoi(rhs_date.substr(0, 2));
+    int rhs_dd = stoi(rhs_date.substr(3, 2));
+    int rhs_yyyy = stoi(rhs_date.substr(6, 4));
+
+    if (lhs_yyyy < rhs_yyyy){
+        return true;
+    }
+    if (lhs_yyyy == rhs_yyyy){
+        if (lhs_mm < rhs_mm){
+            return true;
+        }
+    }
+    if (lhs_mm == rhs_mm){
+        if (lhs_dd < rhs_dd){
+            return true;
+        }
+    }
+
+    return false;
 }
 
 bool MainWindow::add_souvenir(std::string input_str)

@@ -37,6 +37,9 @@ private:
     //All input functions should utilize btn_confirm_handler()
     bool add_souvenir(std::string input_str);
     bool del_souvenir(std::string input_str);
+    bool compare_dates(std::string lhs_date, std::string rhs_date);     ///     mm/dd/yyyy
+                                                                        ///     return true if lhs_date is before rhs_date
+                                                                        ///     ex: lhs is 2000; rhs is 2003 - return true since lhs is before rhs
 
 private slots:
     //Button Slot Functions
