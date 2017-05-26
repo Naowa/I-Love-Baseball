@@ -23,6 +23,9 @@
       <height>180</height>
      </rect>
     </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="btnConfirm">
     <property name="geometry">
@@ -37,30 +40,23 @@
      <string>OK</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="inputBox">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>200</y>
-      <width>300</width>
-      <height>30</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="instructions">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>119</x>
       <y>200</y>
-      <width>100</width>
+      <width>231</width>
       <height>30</height>
      </rect>
     </property>
     <property name="text">
      <string>GUI MOCKUP</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btnAddSouvenir">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -70,20 +66,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Add Souvenir</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="btnMLS">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>270</y>
-      <width>80</width>
+      <x>30</x>
+      <y>240</y>
+      <width>171</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>All Major League Stadiums</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
@@ -112,7 +108,7 @@
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="btnDelSouvenir">
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -122,7 +118,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Del Souvenir</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
@@ -164,7 +160,7 @@
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="btnDisplay">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -174,7 +170,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Display</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_10">
@@ -216,6 +212,68 @@
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="inputBox">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>200</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelTrips">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>200</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plan a Trip</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnALS">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>270</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>All American League Stadiums</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNLS">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>300</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>All National League Stadiums</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnChangeSouvenir">
+    <property name="geometry">
+     <rect>
+      <x>339</x>
+      <y>270</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Souvenir</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -239,5 +297,76 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnAddSouvenir</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Add_Souvenir_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>292</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDelSouvenir</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Del_Souvenir_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>511</x>
+     <y>284</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>443</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDisplay</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Display_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>576</x>
+     <y>287</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnConfirm</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_confirm_handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>694</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>btn_Add_Souvenir_Handler()</slot>
+  <slot>btn_Del_Souvenir_Handler()</slot>
+  <slot>btn_Display_Handler()</slot>
+  <slot>btn_confirm_handler()</slot>
+ </slots>
 </ui>

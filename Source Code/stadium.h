@@ -1,4 +1,4 @@
-//VERSION 0.0.4
+//VERSION 0.0.6
 
 #ifndef STADIUM_H
 #define STADIUM_H
@@ -26,12 +26,12 @@ public:
                 int input_seating_capacity, bool input_american_league, bool input_grass);
 
     void add_souvenir(std::string input_item_name, double input_item_price);             //add_souvenir - adds a new souvenir to the souvenirs vector
-    void display_souvenirs();                                                       ///**display_souvenirs - displays souvenirs to console (test function)
-    void display_stadium_info();                                                    ///**display_stadium_info - displays stadium info to console (test function)
+    std::string display_souvenirs();                                                       ///**display_souvenirs - displays souvenirs to console (test function)
+    std::string display_stadium_info();                                                    ///**display_stadium_info - displays stadium info to console (test function)
     Souvenir operator[] (int index);                                               //operator [] - overloaded bracket operator for souvenirs vector
     Souvenir operator[] (std::string name);
     Souvenir get_souviner(std::string name);
-    void remove_souvenir(std::string target_item_name);                                  //remove_souvenir - removes a souvenir from souvenirs vector
+    bool remove_souvenir(std::string target_item_name);                                  //remove_souvenir - removes a souvenir from souvenirs vector
     void initialize_souvenirs();
 
     //SETTERS

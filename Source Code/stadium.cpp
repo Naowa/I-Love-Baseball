@@ -1,8 +1,9 @@
-//VERSION 0.0.4
+//VERSION 0.0.6
 
 #include "stadium.h"
 
 using std::string;
+using std::to_string;
 using std::cout;
 using std::endl;
 
@@ -83,11 +84,11 @@ ILB::Souvenir ILB::Stadium::operator[] (int index)
     return souvenirs[index];
 }
 
-ILB::Souvenir ILB::Stadium::operator[] (std::string name) {
+ILB::Souvenir ILB::Stadium::operator[] (string name) {
     return this->get_souviner(name);
 }
 
-ILB::Souvenir ILB::Stadium::get_souviner(std::string name) {
+ILB::Souvenir ILB::Stadium::get_souviner(string name) {
     try {
         for (Souvenir item : souvenirs) {
             if (item.item_name == name) {
@@ -101,21 +102,19 @@ ILB::Souvenir ILB::Stadium::get_souviner(std::string name) {
     }
 }
 
-void ILB::Stadium::display_stadium_info()
+string ILB::Stadium::display_stadium_info()
 {
-    cout << stadium_name << endl;
-    cout << team_name << endl;
-    cout << street_address << endl;
-    cout << city_state_zip << endl;
-    cout << box_office_number << endl;
-    cout << "Opened - " << date_opened << endl;
-    cout << "Capacity - " << seating_capacity << endl;
+    string output_Str;
 
-    if (grass) cout << "Is a grass stadium." << endl;
-    else cout << "Is not a grass stadium." << endl;
+    output_Str += stadium_name; output_Str += "\n";
+    output_Str += "     "; output_Str += team_name; output_Str += "\n";
+    output_Str += "     "; output_Str += street_address; output_Str += "\n";
+    output_Str += "     "; output_Str += city_state_zip; output_Str += "\n";
+    output_Str += "     "; output_Str += box_office_number; output_Str += "\n";
+    output_Str += "     "; output_Str += "Opened - "; output_Str += to_string(date_opened); output_Str += "\n";
+    output_Str += "     "; output_Str += "Capacity - "; output_Str += to_string(seating_capacity); output_Str += "\n";
 
-    if (american_league) cout << "Is part of American League." << endl;
-    else cout << "Is part of National League." << endl;
+    return output_Str;
 }
 
 void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
@@ -128,25 +127,33 @@ void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
     souvenirs.push_back(new_souvenir);
 }
 
-void ILB::Stadium::remove_souvenir(string target_item_name)
+bool ILB::Stadium::remove_souvenir(string target_item_name)
 {
     for (int i = 0; i < souvenirs.size(); i++){
         if (souvenirs[i].item_name == target_item_name){
             souvenirs.erase(souvenirs.begin() + i);
-            return;
+            return true;
         }
     }
+    return false;
 }
 
-void ILB::Stadium::display_souvenirs()
+string ILB::Stadium::display_souvenirs()
 {
+    string output_Str;
+
     for (int i = 0; i < souvenirs.size(); i++){
-        cout << "{" << souvenirs[i].item_name << ", " << souvenirs[i].item_price << "}";
-        cout << ", ";
+        output_Str += "{";
+        output_Str += souvenirs[i].item_name; output_Str += ", ";
+        output_Str += to_string(souvenirs[i].item_price);
+        output_Str += "}";
+        output_Str += ", ";
     }
+
+    return output_Str;
 }
 
-void ILB::Stadium::change_souvenir_name(std::string name, std::string new_name) {
+void ILB::Stadium::change_souvenir_name(string name, string new_name) {
     for (int i = 0; i < souvenirs.size(); i++){
         if (souvenirs[i].item_name == name){
             souvenirs[i].item_name = new_name;
@@ -155,7 +162,7 @@ void ILB::Stadium::change_souvenir_name(std::string name, std::string new_name) 
     }
 }
 
-void ILB::Stadium::change_souvenir_price(std::string name, double price) {
+void ILB::Stadium::change_souvenir_price(string name, double price) {
     for (int i = 0; i < souvenirs.size(); i++){
         if (souvenirs[i].item_name == name){
             souvenirs[i].item_price = price;
