@@ -7,7 +7,7 @@ using std::to_string;
 using std::cout;
 using std::endl;
 
-ILB::Stadium::Stadium(){
+ILB::Stadium::Stadium() : Vertex(){
     stadium_name = "NO STADIUM NAME";
     team_name = "NO TEAM NAME";
     street_address = "NO STREET ADDRESS";
@@ -20,7 +20,7 @@ ILB::Stadium::Stadium(){
     this->initialize_souvenirs();
 }
 
-ILB::Stadium::Stadium(string input_stadium_name) {
+ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name){
     stadium_name = input_stadium_name;
     team_name = "NO TEAM NAME";
     street_address = "NO STREET ADDRESS";
@@ -35,7 +35,7 @@ ILB::Stadium::Stadium(string input_stadium_name) {
 
 ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string input_street_address,
         string input_city_state_zip, string input_box_office_number, string input_date_opened,
-        int input_seating_capacity, bool input_american_league, bool input_grass){
+        int input_seating_capacity, bool input_american_league, bool input_grass) : Vertex(input_stadium_name){
     stadium_name = input_stadium_name;
     team_name = input_team_name;
     street_address = input_street_address;
@@ -171,3 +171,21 @@ void ILB::Stadium::change_souvenir_price(string name, double price) {
     }
 }
 
+ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
+     stadium_name=B.stadium_name;
+     team_name=B.team_name;
+     street_address=B.street_address;
+     city_state_zip=B.city_state_zip;
+     box_office_number=B.box_office_number;
+     date_opened=B.date_opened;
+     seating_capacity=B.seating_capacity;
+     american_league=B.american_league;
+     grass=B.grass;
+
+     return *this;
+
+}
+
+bool ILB::Stadium::operator ==(ILB::Stadium& B){
+    return(this->stadium_name==B.stadium_name);
+}

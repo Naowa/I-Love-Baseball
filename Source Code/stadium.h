@@ -3,6 +3,7 @@
 #ifndef STADIUM_H
 #define STADIUM_H
 
+#include <vertex.h>
 #include <cassert>
 #include <vector>
 #include <iostream>
@@ -18,7 +19,7 @@ struct Souvenir{
 ///***- create an array to store pointers to each stadium object
 ///***- sort by stadium information gained from pointer
 
-class Stadium
+class Stadium : public Vertex<std::string>
 {
 public:
     //PUBLIC FUNCTIONS
@@ -36,6 +37,7 @@ public:
     Souvenir get_souviner(std::string name);
     bool remove_souvenir(std::string target_item_name);                                  //remove_souvenir - removes a souvenir from souvenirs vector
     void initialize_souvenirs();
+    bool operator==(ILB::Stadium&);
 
     //SETTERS
     inline void set_stadium_name(std::string input){ stadium_name = input; }
@@ -47,20 +49,21 @@ public:
     inline void set_seating_capacity(int input){ seating_capacity = input; }
     inline void set_american_league(bool input){ american_league = input; }
     inline void set_grass(bool input){ grass = input; }
+    Stadium& operator=(const Stadium& B);
 
     //GETTERS
-    inline std::string get_stadium_name(){ return stadium_name; }
-    inline std::string get_team_name(){ return team_name; }
-    inline std::string get_street_address(){ return street_address; }
-    inline std::string get_city_state_zip(){ return city_state_zip; }
-    inline std::string get_box_office_number(){ return box_office_number; }
-    inline std::string get_date_opened(){ return date_opened; }
-    inline int get_seating_capacity(){ return seating_capacity; }
-    inline int get_size(){ return souvenirs.size(); }
-    inline bool if_american_league(){ return american_league;}
-    inline bool if_national_leauge(){ return !(american_league); }
-    inline bool if_grass(){ return grass; }
-    inline std::vector<Souvenir> get_souvenirs_list() {return this->souvenirs;}
+    inline std::string get_stadium_name() const{ return stadium_name; }
+    inline std::string get_team_name() const{ return team_name; }
+    inline std::string get_street_address() const{ return street_address; }
+    inline std::string get_city_state_zip() const{ return city_state_zip; }
+    inline std::string get_box_office_number() const{ return box_office_number; }
+    inline std::string get_date_opened() const{ return date_opened; }
+    inline int get_seating_capacity() const{ return seating_capacity; }
+    inline int get_size() const{ return souvenirs.size(); }
+    inline bool if_american_league() const{ return american_league;}
+    inline bool if_national_leauge() const{ return !(american_league); }
+    inline bool if_grass() const{ return grass; }
+    inline std::vector<Souvenir> get_souvenirs_list() const{return this->souvenirs;}
 
     //SOUVENIR SETTERS
     void change_souvenir_name(std::string name, std::string new_name);
