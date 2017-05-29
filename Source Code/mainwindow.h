@@ -41,6 +41,7 @@ private:
                                                                         ///     return true if lhs_date is before rhs_date
                                                                         ///     ex: lhs is 2000; rhs is 2003 - return true since lhs is before rhs
 
+
 private slots:
     //Button Slot Functions
     void btn_confirm_handler();                     //confirms ALL user input

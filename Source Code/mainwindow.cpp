@@ -63,6 +63,8 @@ bool MainWindow::add_souvenir(std::string input_str)
     std::string item_name_str;
     std::string item_price_input_str;
     double item_price;
+    int decimal_count = 0;
+    int numeral_count = 0;
 
     ////(************************************************check for souvenirs with spaces in name
     //store item name, check a-z and A-Z
@@ -81,18 +83,36 @@ bool MainWindow::add_souvenir(std::string input_str)
     //store item price, check 0-9
     while ( (input_str[i] != '/') && (input_str[i] != NULL) ){
             if ( (input_str[i] > 47) && (input_str[i] < 58) ){
+                numeral_count++;
                 item_price_input_str += input_str[i];
             }else{
-                valid = false;
+                if (input_str[i] == 46){        //check decimal, add to string
+                    if (decimal_count == 0){
+                        decimal_count++;
+                        item_price_input_str += input_str[i];
+                    }else{
+                        valid = false;
+                    }
+                }else{
+                    valid = false;
+                }
             }
         i++;
+    }
+
+    if (numeral_count == 0){
+        valid = false;
     }
 
     if ( (item_name_str.empty()) || (item_price_input_str.empty()) ){
         valid = false;
     }
     if (valid){
-        item_price = stoi(item_price_input_str);
+        if (decimal_count == 0){
+            item_price = stoi(item_price_input_str);
+        }else{
+            item_price = stod(item_price_input_str);
+        }
 
         std::cout << item_name_str << std::endl;
         std::cout << item_price << std::endl;
