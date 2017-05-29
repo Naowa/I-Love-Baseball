@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vertex.h>
 template <typename v,typename w>
 struct AdjList
 {
@@ -9,14 +9,14 @@ struct AdjList
     vert=V;
     weights=new w[n];
     for(int i=0; i<n; i++){
-        weights[i]=0;
+        weights[i]=-1;
        }
 
     }
     AdjList(int n){
     weights=new w[n];
     for(int i=0; i<n; i++){
-        weights[i]=0;
+        weights[i]=-1;
        }
 
     }
@@ -56,12 +56,11 @@ class Graph
             }
         w return_weight(v A,v B){
             if(vertice_exists(A)&&vertice_exists(B))
-                return(array[find_index(A)]->weights[B]);
+                return(array[find_index(A)]->weights[find_index(B)]);
         }
-
-
-
-
+        int get_vcount()const{
+            return active_v;
+        }
         int find_index(v src){
 
             for(int i=0; i<active_v && array[i]; i++){
@@ -71,7 +70,7 @@ class Graph
             return -1;
         }
         bool vertice_exists(v src){
-            for(int i=0; i<active_v && array[i]; i++){
+            for(int i=0; i<active_v; i++){
                 if(src==array[i]->vert){
                     return true;
                 }
@@ -81,7 +80,14 @@ class Graph
         }
 
 
-
+        void addVertex(v src){
+            if(vertice_exists(src)){
+                return;
+            }
+            array[active_v]=new AdjList<v,w>(src, vertices);
+            active_v++;
+            return;
+        }
 
 
 
@@ -120,34 +126,18 @@ class Graph
 
         }
 
-         virtual void show(){
+          void show(){
              for(int i=0; i<active_v; i++){
                  for(int j=0; j<active_v; j++)
-                   std::cout << "Parent";//   std::cout<< "From vert: " << array[i]->vert << " to vert: " << array[j]->vert << " is weight " << array[i]->weights[j] << std::endl;
+                     if(array[i]->weights[j] != -1)
+                   std::cout<< "From vert: " << array[i]->vert << " to vert: " << array[j]->vert << " is weight " << array[i]->weights[j] << std::endl;
              }
+          }
 
 
-        }
-//        virtual bool isEqual(Graph& A,Graph& B){
-
-//         }
 
 
-//         friend bool operator==(const Graph& A, const Graph& B){
-//             return isEqual(A,B);
-//         }
-        virtual bool initialize_from_file(std::string filename)=0;
-
-        virtual v* get_vert(){
-             v* temp=new v[active_v];
-             for(int i=0; i<active_v; i++)
-                 temp[i]=array[i]->vert;
-
-             return temp;
-         }
-
-
-        w* dijkstra(v src){
+        void** dijkstra(v src){
 
           w* dist=new w[active_v];
           int* v_visit=new int[active_v];
@@ -165,7 +155,7 @@ class Graph
               int candidate;
               for(int j=0; j<active_v; j++){
 
-                  if (spt[j]==false && dist[j] <=n){
+                  if (spt[j]==false && dist[j] <=n && dist[j] >= 0){
                       n=dist[j];
                       candidate=j;
 
@@ -178,7 +168,7 @@ class Graph
 
          for(int j=0; j<active_v; j++){
 
-             if(!spt[j] && array[index]->weights[j] && (dist[index]+array[index]->weights[j])<dist[j]){
+             if(!spt[j] && array[index]->weights[j] && (dist[index]+array[index]->weights[j])<dist[j] && array[index]->weights[j]>=0){
                  v_visit[j]=v_visit[candidate];
                  v_visit[j]++;
                  dist[j]=dist[index]+array[index]->weights[j];
@@ -190,10 +180,40 @@ class Graph
 
          }
 
+          void** return_this=new void*[2];
+          return_this[0]=dist;
+          return_this[1]=v_visit;
 
-          return dist;
+
+          return return_this; //Extract with     int* distances=(int*)temp2[0];
+                              //                 int* visits=(int*)temp2[1];
+                              //For Graph<int,Vertex>
 
      }
+
+
+       v* get_vert_name(){
+
+                     v* temp=new v[active_v];
+                     for(int i=0; i<active_v; i++)
+                         temp[i]=this->array[i]->vert.get_name();
+
+                     return temp;
+
+        }
+
+       Graph(Graph& B){
+           this->vertices = B.vertices*2;
+           this->active_v=0;
+           this->array=new AdjList<v,w>*[vertices];
+           for(int i=0; i<vertices; i++){
+               this->array[i]->vert=B.array[i]->vert;
+                for(int j=0; j<active_v; j++){
+                    this->array[i]->weights[j]=B.array[i]->weights[j];
+                }
+           }
+       }
+
 
 
 };

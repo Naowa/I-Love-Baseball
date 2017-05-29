@@ -4,45 +4,48 @@ using std::string;
 using std::cout;
 using std::endl;
 
-ILB::Stadium::Stadium(){
+ILB::Stadium::Stadium():Vertex(){
+    stadium_type="no";
     stadium_name = "NO STADIUM NAME";
     team_name = "NO TEAM NAME";
     street_address = "NO STREET ADDRESS";
     city_state_zip = "NO CITY, STATE, ZIP";
     box_office_number = "NO BOX OFFICE NUMBER";
-    american_league = false;
     grass = false;
     date_opened = 0;
     seating_capacity = 0;
     this->initialize_souvenirs();
+
 }
 
-ILB::Stadium::Stadium(string input_stadium_name) {
+ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name) {
+    stadium_type="no";
     stadium_name = input_stadium_name;
     team_name = "NO TEAM NAME";
     street_address = "NO STREET ADDRESS";
     city_state_zip = "NO CITY, STATE, ZIP";
     box_office_number = "NO BOX OFFICE NUMBER";
-    american_league = false;
     grass = false;
     date_opened = 0;
     seating_capacity = 0;
     this->initialize_souvenirs();
+
 }
 
 ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string input_street_address,
         string input_city_state_zip, string input_box_office_number, int input_date_opened,
-        int input_seating_capacity, bool input_american_league, bool input_grass){
+        int input_seating_capacity, bool input_grass) : Vertex(input_stadium_name){
+    stadium_type="no";
     stadium_name = input_stadium_name;
     team_name = input_team_name;
     street_address = input_street_address;
     city_state_zip = input_city_state_zip;
     box_office_number = input_box_office_number;
-    american_league = input_american_league;
     grass = input_grass;
     date_opened = input_date_opened;
     seating_capacity = input_seating_capacity;
     this->initialize_souvenirs();
+
 }
 
 void ILB::Stadium::initialize_souvenirs() {
@@ -112,8 +115,7 @@ void ILB::Stadium::display_stadium_info()
     if (grass) cout << "Is a grass stadium." << endl;
     else cout << "Is not a grass stadium." << endl;
 
-    if (american_league) cout << "Is part of American League." << endl;
-    else cout << "Is part of National League." << endl;
+    cout << "Is part of " << stadium_type <<" League." << endl;
 }
 
 void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
@@ -161,3 +163,21 @@ void ILB::Stadium::change_souvenir_price(std::string name, double price) {
         }
     }
 }
+ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
+     stadium_name=B.stadium_name;
+     team_name=B.team_name;
+     street_address=B.street_address;
+     city_state_zip=B.city_state_zip;
+     box_office_number=B.box_office_number;
+     date_opened=B.date_opened;
+     seating_capacity=B.seating_capacity;
+     stadium_type=B.stadium_type;
+     grass=B.grass;
+
+     return *this;
+
+}
+bool ILB::Stadium::operator ==(ILB::Stadium& B){
+    return(this->stadium_name==B.stadium_name);
+}
+

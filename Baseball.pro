@@ -10,5 +10,8 @@ SOURCES += main.cpp \
 HEADERS += \
     Graph.h \
     baseball_graph.h \
-    stadium.h
+    stadium.h \
+    vertex.h \
+    national_stadium.h \
+    american_stadium.h
 
