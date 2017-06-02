@@ -56,7 +56,7 @@ class Graph
             for(int i=0; i<vertices; i++)
                 this->array[i]=NULL;
 
-            }
+        }
         w return_weight(v A,v B){
             if(vertice_exists(A)&&vertice_exists(B))
                 return(array[find_index(A)]->weights[find_index(B)]);

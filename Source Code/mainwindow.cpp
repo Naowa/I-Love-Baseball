@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     my_stadium.set_box_office_number("(626)-111-1342");
 //    my_stadium.set_date_opened(1996);
     my_stadium.set_seating_capacity(34653);
+    graph = new Baseball_Graph(50);
 }
 
 MainWindow::~MainWindow()

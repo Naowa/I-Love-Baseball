@@ -5,8 +5,12 @@
 
 #include <QMainWindow>
 #include "stadium.h"
+#include "baseball_graph.h"
+#include "Graph.h"
 
 namespace Ui {
+
+//Baseball_Graph agt();
 class MainWindow;
 }
 
@@ -32,6 +36,7 @@ private:
 
     void display(std::string input_str);            //display - takes in a string parameter and displays it to the GUI
 
+    Baseball_Graph *graph;
     ILB::Stadium my_stadium;                        //my_stadium - temporarily initialized a stingle stadium for testing purposes/presenting to professor
                                                     ///***later on, we should be able to set a stadium as "selected,"
                                                     ///***and use the GUI functions to manipulate that "selected" stadium
@@ -60,5 +65,7 @@ private slots:
     void btn_Change_Souvenir_Price_Handler();
     void btn_Display_Handler();
 };
+
+//Baseball_Graph gw(50);
 
 #endif // MAINWINDOW_H

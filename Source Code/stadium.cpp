@@ -54,26 +54,26 @@ void ILB::Stadium::initialize_souvenirs() {
     Souvenir initial_item3;
     Souvenir initial_item4;
 
-    initial_item1.item_name = "Baseball Cap";
-    initial_item1.item_price = 25.99;
-    initial_item1.origin_stadium_name = this->stadium_name;
+//    initial_item1.item_name = "Baseball Cap";
+//    initial_item1.item_price = 25.99;
+//    initial_item1.origin_stadium_name = this->stadium_name;
 
-    initial_item2.item_name = "Baseball Bat";
-    initial_item2.item_price = 35.35;
-    initial_item2.origin_stadium_name = this->stadium_name;
+//    initial_item2.item_name = "Baseball Bat";
+//    initial_item2.item_price = 35.35;
+//    initial_item2.origin_stadium_name = this->stadium_name;
 
-    initial_item3.item_name = "Team Pennant";
-    initial_item3.item_price = 12.99;
-    initial_item3.origin_stadium_name = this->stadium_name;
+//    initial_item3.item_name = "Team Pennant";
+//    initial_item3.item_price = 12.99;
+//    initial_item3.origin_stadium_name = this->stadium_name;
 
-    initial_item4.item_name = "Autographed Baseball";
-    initial_item4.item_price = 19.99;
-    initial_item4.origin_stadium_name = this->stadium_name;
+//    initial_item4.item_name = "Autographed Baseball";
+//    initial_item4.item_price = 19.99;
+//    initial_item4.origin_stadium_name = this->stadium_name;
 
-    this->souvenirs.push_back(initial_item1);
-    this->souvenirs.push_back(initial_item2);
-    this->souvenirs.push_back(initial_item3);
-    this->souvenirs.push_back(initial_item4);
+//    this->souvenirs.push_back(initial_item1);
+//    this->souvenirs.push_back(initial_item2);
+//    this->souvenirs.push_back(initial_item3);
+//    this->souvenirs.push_back(initial_item4);
 
 }
 
