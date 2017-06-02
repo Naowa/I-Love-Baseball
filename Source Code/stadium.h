@@ -1,4 +1,4 @@
-//VERSION 0.0.6
+//VERSION 0.1.0
 
 #ifndef STADIUM_H
 #define STADIUM_H
@@ -52,22 +52,22 @@ public:
     Stadium& operator=(const Stadium& B);
 
     //GETTERS
-    inline std::string get_stadium_name() const{ return stadium_name; }
-    inline std::string get_team_name() const{ return team_name; }
-    inline std::string get_street_address() const{ return street_address; }
-    inline std::string get_city_state_zip() const{ return city_state_zip; }
-    inline std::string get_box_office_number() const{ return box_office_number; }
-    inline std::string get_date_opened() const{ return date_opened; }
-    inline int get_seating_capacity() const{ return seating_capacity; }
-    inline int get_size() const{ return souvenirs.size(); }
-    inline bool if_american_league() const{ return american_league;}
-    inline bool if_national_leauge() const{ return !(american_league); }
-    inline bool if_grass() const{ return grass; }
-    inline std::vector<Souvenir> get_souvenirs_list() const{return this->souvenirs;}
+    inline std::string get_stadium_name(){ return stadium_name; }
+    inline std::string get_team_name(){ return team_name; }
+    inline std::string get_street_address(){ return street_address; }
+    inline std::string get_city_state_zip(){ return city_state_zip; }
+    inline std::string get_box_office_number(){ return box_office_number; }
+    inline std::string get_date_opened(){ return date_opened; }
+    inline int get_seating_capacity(){ return seating_capacity; }
+    inline int get_size(){ return souvenirs.size(); }
+    inline bool if_american_league(){ return american_league;}
+    inline bool if_national_leauge(){ return !(american_league); }
+    inline bool if_grass(){ return grass; }
+    inline std::vector<Souvenir> get_souvenirs_list() {return this->souvenirs;}
 
     //SOUVENIR SETTERS
-    void change_souvenir_name(std::string name, std::string new_name);
-    void change_souvenir_price(std::string name, double price);
+    bool change_souvenir_name(std::string name, std::string new_name);
+    bool change_souvenir_price(std::string name, double price);
 
 
 private:

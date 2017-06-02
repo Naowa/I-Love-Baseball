@@ -157,17 +157,17 @@
      <string>All National League Stadiums</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnChangeSouvenir">
+   <widget class="QPushButton" name="btnChangeSouvenirPrice">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>410</y>
-      <width>101</width>
+      <x>410</x>
+      <y>470</y>
+      <width>131</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Change Souvenir</string>
+     <string>Change Souvenir Price</string>
     </property>
    </widget>
    <widget class="QRadioButton" name="radioTN">
@@ -219,7 +219,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Administrator Functions</string>
+     <string>Admin Sign In</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -352,6 +352,19 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
+   <widget class="QPushButton" name="btnChangeSouvenirName">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>440</y>
+      <width>131</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Souvenir Name</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -383,8 +396,8 @@
    <slot>btn_Add_Souvenir_Handler()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>384</x>
-     <y>292</y>
+     <x>410</x>
+     <y>448</y>
     </hint>
     <hint type="destinationlabel">
      <x>351</x>
@@ -400,7 +413,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>511</x>
-     <y>284</y>
+     <y>448</y>
     </hint>
     <hint type="destinationlabel">
      <x>443</x>
@@ -415,8 +428,8 @@
    <slot>btn_Display_Handler()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>576</x>
-     <y>287</y>
+     <x>450</x>
+     <y>299</y>
     </hint>
     <hint type="destinationlabel">
      <x>535</x>
@@ -440,11 +453,62 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnConfirm_Admin</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_confirm_admin_handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>676</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>695</x>
+     <y>418</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnChangeSouvenirName</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Change_Souvenir_Name_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>484</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>547</x>
+     <y>481</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnChangeSouvenirPrice</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Change_Souvenir_Price_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>505</x>
+     <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>546</x>
+     <y>512</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>btn_Add_Souvenir_Handler()</slot>
   <slot>btn_Del_Souvenir_Handler()</slot>
   <slot>btn_Display_Handler()</slot>
   <slot>btn_confirm_handler()</slot>
+  <slot>btn_confirm_admin_handler()</slot>
+  <slot>btn_Change_Souvenir_Name_Handler()</slot>
+  <slot>btn_Change_Souvenir_Price_Handler()</slot>
  </slots>
 </ui>

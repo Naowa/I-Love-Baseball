@@ -1,4 +1,4 @@
-//VERSION 0.0.6
+//VERSION 0.1.0
 
 #include "stadium.h"
 
@@ -153,22 +153,24 @@ string ILB::Stadium::display_souvenirs()
     return output_Str;
 }
 
-void ILB::Stadium::change_souvenir_name(string name, string new_name) {
+bool ILB::Stadium::change_souvenir_name(string name, string new_name) {
     for (int i = 0; i < souvenirs.size(); i++){
         if (souvenirs[i].item_name == name){
             souvenirs[i].item_name = new_name;
-            return;
+            return true;
         }
     }
+    return false;
 }
 
-void ILB::Stadium::change_souvenir_price(string name, double price) {
+bool ILB::Stadium::change_souvenir_price(string name, double price) {
     for (int i = 0; i < souvenirs.size(); i++){
         if (souvenirs[i].item_name == name){
             souvenirs[i].item_price = price;
-            return;
+            return true;
         }
     }
+    return false;
 }
 
 ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
@@ -189,3 +191,4 @@ ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
 bool ILB::Stadium::operator ==(ILB::Stadium& B){
     return(this->stadium_name==B.stadium_name);
 }
+
