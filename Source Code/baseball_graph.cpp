@@ -81,7 +81,7 @@ int* Baseball_Graph::shortest_path(ILB::Stadium A, ILB::Stadium B){
 
 int* Baseball_Graph::shortest_path(std::string a, std::string b){
     ILB::Stadium A(a);
-    ILB::Stadium B(a);
+    ILB::Stadium B(b);
     void** temp=this->dijkstra(A);
     int* distances=(int*)temp[0];
     int* visits=(int*)temp[1];
