@@ -194,11 +194,11 @@ class Graph
      }
 
 
-       v* get_vert_name(){
+       v* get_vert(){
 
                      v* temp=new v[active_v];
                      for(int i=0; i<active_v; i++)
-                         temp[i]=this->array[i]->vert.get_name();
+                         temp[i]=this->array[i]->vert;
 
                      return temp;
 
