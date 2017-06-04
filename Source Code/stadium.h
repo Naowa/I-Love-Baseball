@@ -38,6 +38,7 @@ public:
     bool remove_souvenir(std::string target_item_name);                                  //remove_souvenir - removes a souvenir from souvenirs vector
     void initialize_souvenirs();
     bool operator==(ILB::Stadium&);
+    bool operator==(std::string);
 
     //SETTERS
     inline void set_stadium_name(std::string input){ stadium_name = input; }
@@ -52,6 +53,7 @@ public:
     Stadium& operator=(const Stadium& B);
 
     //GETTERS
+    inline std::string get_name() const{return stadium_name;}
     inline std::string get_stadium_name(){ return stadium_name; }
     inline std::string get_team_name(){ return team_name; }
     inline std::string get_street_address(){ return street_address; }

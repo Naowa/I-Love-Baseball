@@ -18,6 +18,7 @@ ILB::Stadium::Stadium() : Vertex(){
     date_opened = "01/01/2000";
     seating_capacity = 0;
     this->initialize_souvenirs();
+
 }
 
 ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name){
@@ -31,6 +32,7 @@ ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name){
     date_opened = "01/01/2000";
     seating_capacity = 0;
     this->initialize_souvenirs();
+    name=stadium_name;
 }
 
 ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string input_street_address,
@@ -46,6 +48,7 @@ ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string 
     date_opened = input_date_opened;
     seating_capacity = input_seating_capacity;
     this->initialize_souvenirs();
+    name=stadium_name;
 }
 
 void ILB::Stadium::initialize_souvenirs() {
@@ -183,6 +186,7 @@ ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
      seating_capacity=B.seating_capacity;
      american_league=B.american_league;
      grass=B.grass;
+     name=B.stadium_name;
 
      return *this;
 
@@ -191,4 +195,6 @@ ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
 bool ILB::Stadium::operator ==(ILB::Stadium& B){
     return(this->stadium_name==B.stadium_name);
 }
-
+bool ILB::Stadium::operator ==(std::string B){
+    return(this->stadium_name==B);
+}
