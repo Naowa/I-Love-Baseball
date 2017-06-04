@@ -86,6 +86,47 @@ else if(type==1){
         }
         return true;
 
+}else if(type==2){
+    getline( file, line );
+    getline( file, line );
+    getline(file,line);
+    while(isEOF != EOF&&getline(file,line)){
+        std::string name,team_name,street_name,city_state_zip,box_office_num, date_opened;
+        std::string month;
+        std::string all_months[13]={"","January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        int seating_cap;
+
+       name=line;
+       getline(file,team_name);
+       getline(file,street_name);
+       getline(file,city_state_zip);
+       getline(file,box_office_num);
+       getline(file,line,'-');
+       getline(file,month,' ');
+       for(int i=1; i<13; i++){
+       if(month==all_months[i])
+           date_opened="0"+std::to_string(i)+'/';
+       }
+       getline(file,line,',');
+       date_opened=date_opened+line+'/';
+       getline(file,line);
+       date_opened=date_opened+line;
+       getline(file,line, '-');
+       getline(file,line,',');
+       seating_cap=std::stoi(line)*1000;
+       getline(file,line);
+       seating_cap=seating_cap+stoi(line);
+       ILB::Stadium temp(name,team_name,street_name,city_state_zip,box_office_num,date_opened,seating_cap,false,true);
+       if(this->vertice_exists(name)){
+           update_stadium(temp);
+       }
+       getline(file,line);
+
+
+
+    }
+    return true;
+
 }
 
 }
