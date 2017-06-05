@@ -122,6 +122,11 @@ else if(type==1){
        }
 
        getline(file,line,',');
+       if(isdigit(line[0])){
+       int day=std::stoi(line);
+       if(day<10)
+           line='0'+line;
+       }
        date_opened=date_opened+line+'/';
        file.ignore(1);
        getline(file,line);
