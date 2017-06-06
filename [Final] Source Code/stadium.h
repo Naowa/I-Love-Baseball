@@ -65,7 +65,8 @@ public:
     inline int get_size(){ return souvenirs.size(); }
     inline bool if_american_league(){ return american_league;}
     inline bool if_national_leauge(){ return !(american_league); }
-    inline bool if_grass(){ return grass; }
+    inline bool get_american_league() { return american_league; }
+    inline bool get_grass(){ return grass; }
     inline std::vector<Souvenir> get_souvenirs_list() {return this->souvenirs;}
 
     //SOUVENIR SETTERS

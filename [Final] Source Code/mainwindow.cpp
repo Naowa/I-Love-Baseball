@@ -20,20 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
     graph = new Baseball_Graph(50);
     graph->initialize_from_file("ILB Weights - Sheet1.csv", 0);
     graph->initialize_from_file("StadiumInfo.txt", 1);
-
-
-//    ILB::Stadium* temp = graph->get_vert();
-
-//    for (int i = 0; i < graph->get_vcount(); i++){
-//        std::cout << temp[i].get_stadium_name() << std::endl;
-//    }
-//    std::swap(temp[0], temp[1]);
-//    std::swap(temp[0], temp[graph->get_vcount() - 1]);
-//    std::cout << std::endl;
-//    for (int i = 0; i < graph->get_vcount(); i++){
-//        std::cout << temp[i].get_stadium_name() << std::endl;
-//    }
-
 }
 
 void MainWindow::btn_confirm_handler()
@@ -122,33 +108,6 @@ void MainWindow::btn_confirm_admin_handler()
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-bool MainWindow::compare_dates(string lhs_date, string rhs_date)
-{
-    int lhs_mm = stoi(lhs_date.substr(0, 2));
-    int lhs_dd = stoi(lhs_date.substr(3, 2));
-    int lhs_yyyy = stoi(lhs_date.substr(6, 4));
-
-    int rhs_mm = stoi(rhs_date.substr(0, 2));
-    int rhs_dd = stoi(rhs_date.substr(3, 2));
-    int rhs_yyyy = stoi(rhs_date.substr(6, 4));
-
-    if (lhs_yyyy < rhs_yyyy){
-        return true;
-    }
-    if (lhs_yyyy == rhs_yyyy){
-        if (lhs_mm < rhs_mm){
-            return true;
-        }
-    }
-    if (lhs_mm == rhs_mm){
-        if (lhs_dd < rhs_dd){
-            return true;
-        }
-    }
-
-    return false;
 }
 
 bool MainWindow::add_souvenir(std::string input_str)
@@ -492,3 +451,276 @@ void MainWindow::btn_Display_All_Stadiums_Handler()
     ui->instructions->setText("Displayed!");
 }
 
+string MainWindow::to_lexicographical_order(string date)
+{
+    string answer;
+
+    string y = date.substr(6, 4);
+    string m = date.substr(0, 2);
+    string d = date.substr(3, 2);
+
+    answer += y;
+    answer += m;
+    answer += d;
+
+    return answer;
+}
+
+void MainWindow::display_sorted_by_date()
+{
+    std::string output_Str;
+
+    int i_min;
+    ILB::Stadium *temp = graph->get_vert();
+    int sz = graph->get_vcount();
+
+    string date1, date2;
+
+    for (int i = 0; i < sz; i++){
+        i_min = i;
+        date1 = to_lexicographical_order(temp[i_min].get_date_opened());
+        for (int j = (i + 1); j < sz; j++){
+            date2 = to_lexicographical_order(temp[j].get_date_opened());
+            if (date2 < date1){
+                i_min = j;
+                date1 = to_lexicographical_order(temp[i_min].get_date_opened());
+            }
+        }
+        if (i_min != i){
+            std::swap(temp[i], temp[i_min]);
+        }
+    }
+
+    for (int k = 0; k < sz; k++){
+        output_Str += temp[k].display_stadium_info();
+        output_Str += "\n";
+    }
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+    ui->instructions->setText("Displayed Sorted By Date Opened!");
+}
+
+void MainWindow::display_sorted_by_stadium_names()
+{
+    std::string output_Str;
+
+    int i_min;
+    ILB::Stadium *temp = graph->get_vert();
+    int sz = graph->get_vcount();
+
+    string stadium1, stadium2;
+
+    for (int i = 0; i < sz; i++){
+        i_min = i;
+        stadium1 = temp[i_min].get_stadium_name();
+        for (int j = (i + 1); j < sz; j++){
+            stadium2 = temp[j].get_stadium_name();
+            if (stadium2 < stadium1){
+                i_min = j;
+                stadium1 = temp[i_min].get_stadium_name();
+            }
+        }
+        if (i_min != i){
+            std::swap(temp[i], temp[i_min]);
+        }
+    }
+
+    for (int k = 0; k < sz; k++){
+        output_Str += temp[k].display_stadium_info();
+        output_Str += "\n";
+    }
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+    ui->instructions->setText("Displayed Sorted By Stadium Names!");
+}
+
+void MainWindow::display_sorted_by_team_names()
+{
+    std::string output_Str;
+
+    int i_min;
+    ILB::Stadium *temp = graph->get_vert();
+    int sz = graph->get_vcount();
+
+    string team1, team2;
+
+    for (int i = 0; i < sz; i++){
+        i_min = i;
+        team1 = temp[i_min].get_team_name();
+        for (int j = (i + 1); j < sz; j++){
+            team2 = temp[j].get_team_name();
+            if (team2 < team1){
+                i_min = j;
+                team1 = temp[i_min].get_team_name();
+            }
+        }
+        if (i_min != i){
+            std::swap(temp[i], temp[i_min]);
+        }
+    }
+
+    for (int k = 0; k < sz; k++){
+        output_Str += temp[k].display_stadium_info();
+        output_Str += "\n";
+    }
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+    ui->instructions->setText("Displayed Sorted By Team Names!");
+}
+
+void MainWindow::display_sorted_by_team_names_american()
+{
+    std::string output_Str;
+
+    int i_min;
+    ILB::Stadium *temp = graph->get_vert();
+    int sz = graph->get_vcount();
+
+        ILB::Stadium american_league[60];
+        int american_league_sz = 0;
+        for (int q = 0; q < sz; q++){
+            if (temp[q].get_american_league() == true){
+                american_league[american_league_sz] = temp[q];
+                american_league_sz++;
+            }
+        }
+        std::cout << "american_league_sz: " << american_league_sz << std::endl;
+
+    string team1, team2;
+
+    for (int i = 0; i < american_league_sz; i++){
+        i_min = i;
+        team1 = american_league[i_min].get_team_name();
+        for (int j = (i + 1); j < sz; j++){
+            team2 = american_league[j].get_team_name();
+            if (team2 < team1){
+                i_min = j;
+                team1 = american_league[i_min].get_team_name();
+            }
+        }
+        if (i_min != i){
+            std::swap(american_league[i], american_league[i_min]);
+        }
+    }
+
+    for (int k = 0; k < american_league_sz; k++){
+        output_Str += american_league[k].display_stadium_info();
+        output_Str += "\n";
+    }
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+    ui->instructions->setText("Displayed Sorted By American Team Names!");
+}
+
+void MainWindow::display_sorted_by_team_names_national()
+{
+    std::string output_Str;
+
+    int i_min;
+    ILB::Stadium *temp = graph->get_vert();
+    int sz = graph->get_vcount();
+
+        ILB::Stadium national_league[60];
+        int national_league_sz = 0;
+        for (int q = 0; q < sz; q++){
+            if (temp[q].get_american_league() == false){
+                national_league[national_league_sz] = temp[q];
+                national_league_sz++;
+            }
+        }
+        std::cout << "national_league_sz: " << national_league_sz << std::endl;
+
+    string team1, team2;
+
+    for (int i = 0; i < national_league_sz; i++){
+        i_min = i;
+        team1 = national_league[i_min].get_team_name();
+        for (int j = (i + 1); j < sz; j++){
+            team2 = national_league[j].get_team_name();
+            if (team2 < team1){
+                i_min = j;
+                team1 = national_league[i_min].get_team_name();
+            }
+        }
+        if (i_min != i){
+            std::swap(national_league[i], national_league[i_min]);
+        }
+    }
+
+    for (int k = 0; k < national_league_sz; k++){
+        output_Str += national_league[k].display_stadium_info();
+        output_Str += "\n";
+    }
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+    ui->instructions->setText("Displayed Sorted By National Team Names!");
+}
+
+void MainWindow::display_sorted_by_grass_surface_and_team_names()
+{
+    std::string output_Str;
+
+    int i_min;
+    ILB::Stadium *temp = graph->get_vert();
+    int sz = graph->get_vcount();
+
+        ILB::Stadium grass_stadiums[60];
+        int grass_stadiums_sz = 0;
+
+        ILB::Stadium non_grass_stadiums[60];
+        int non_grass_stadiums_sz = 0;
+        for (int q = 0; q < sz; q++){
+            if (temp[q].get_grass() == true){
+                grass_stadiums[grass_stadiums_sz] = temp[q];
+                grass_stadiums_sz++;
+            }else{
+                non_grass_stadiums[non_grass_stadiums_sz] = temp[q];
+                non_grass_stadiums_sz++;
+            }
+        }
+        std::cout << "grass_stadiums_sz: " << grass_stadiums_sz << std::endl;
+        std::cout << "non_grass_stadiums_sz: " << non_grass_stadiums_sz << std::endl;
+
+    string grass_team1, grass_team2;
+
+    for (int i = 0; i < grass_stadiums_sz; i++){
+        i_min = i;
+        grass_team1 = grass_stadiums[i_min].get_team_name();
+        for (int j = (i + 1); j < sz; j++){
+            grass_team2 = grass_stadiums[j].get_team_name();
+            if (grass_team2 < grass_team1){
+                i_min = j;
+                grass_team1 = grass_stadiums[i_min].get_team_name();
+            }
+        }
+        if (i_min != i){
+            std::swap(grass_stadiums[i], grass_stadiums[i_min]);
+        }
+    }
+
+    for (int i = 0; i < non_grass_stadiums_sz; i++){
+        i_min = i;
+        grass_team1 = non_grass_stadiums[i_min].get_team_name();
+        for (int j = (i + 1); j < sz; j++){
+            grass_team2 = non_grass_stadiums[j].get_team_name();
+            if (grass_team2 < grass_team1){
+                i_min = j;
+                grass_team1 = non_grass_stadiums[i_min].get_team_name();
+            }
+        }
+        if (i_min != i){
+            std::swap(non_grass_stadiums[i], non_grass_stadiums[i_min]);
+        }
+    }
+
+    output_Str += ">Stadiums Listed Below Have Grass Surfaces\n";
+    for (int k = 0; k < grass_stadiums_sz; k++){
+        output_Str += grass_stadiums[k].display_stadium_info();
+        output_Str += "\n";
+    }
+
+    output_Str += "\n";
+
+    output_Str += ">Stadiums Listed Below Do Not Have Grass Surfaces\n";
+    for (int k = 0; k < non_grass_stadiums_sz; k++){
+        output_Str += non_grass_stadiums[k].display_stadium_info();
+        output_Str += "\n";
+    }
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+    ui->instructions->setText("Displayed Sorted By Grass Surface And Team Names!");
+}

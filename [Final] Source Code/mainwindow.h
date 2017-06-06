@@ -37,10 +37,9 @@ private:
     User customer;
     Baseball_Graph *graph;
 
+    ///**PRIVATE FUNCTIONS
     bool valid_string(std::string &val, std::string input_str, int &i);
-    bool compare_dates(std::string lhs_date, std::string rhs_date);     ///     mm/dd/yyyy
-                                                                        ///     return true if lhs_date is before rhs_date
-                                                                        ///     ex: lhs is 2000; rhs is 2003 - return true since lhs is before rhs
+    std::string to_lexicographical_order(std::string date);
 
     ///**ADMINISTRATOR FUNCTIONS
     bool add_souvenir(std::string input_str);
@@ -65,6 +64,12 @@ private slots:
     void btn_Buy_Souvenir_Handler();
     void btn_Display_Purchases_Handler();
     void btn_Display_All_Stadiums_Handler();
+    void display_sorted_by_date();
+    void display_sorted_by_stadium_names();
+    void display_sorted_by_team_names();
+    void display_sorted_by_team_names_american();
+    void display_sorted_by_team_names_national();
+    void display_sorted_by_grass_surface_and_team_names();
 };
 
 //Baseball_Graph gw(50);
