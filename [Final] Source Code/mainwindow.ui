@@ -43,9 +43,9 @@
    <widget class="QLabel" name="instructions">
     <property name="geometry">
      <rect>
-      <x>119</x>
+      <x>9</x>
       <y>290</y>
-      <width>231</width>
+      <width>341</width>
       <height>30</height>
      </rect>
     </property>
@@ -160,9 +160,9 @@
    <widget class="QLabel" name="instructions_Admin">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>10</x>
       <y>620</y>
-      <width>361</width>
+      <width>341</width>
       <height>30</height>
      </rect>
     </property>
@@ -350,6 +350,19 @@
     </property>
     <property name="text">
      <string>Sorted By Grass Surface and Team Names</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnChangeStadiumInfo">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>660</y>
+      <width>121</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Stadium Info</string>
     </property>
    </widget>
   </widget>
@@ -543,8 +556,8 @@
    <slot>display_sorted_by_date()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>126</x>
-     <y>334</y>
+     <x>180</x>
+     <y>367</y>
     </hint>
     <hint type="destinationlabel">
      <x>186</x>
@@ -559,8 +572,8 @@
    <slot>display_sorted_by_stadium_names()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>162</x>
-     <y>367</y>
+     <x>180</x>
+     <y>400</y>
     </hint>
     <hint type="destinationlabel">
      <x>258</x>
@@ -576,7 +589,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>180</x>
-     <y>404</y>
+     <y>437</y>
     </hint>
     <hint type="destinationlabel">
      <x>255</x>
@@ -591,8 +604,8 @@
    <slot>display_sorted_by_team_names_american()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>111</x>
-     <y>423</y>
+     <x>180</x>
+     <y>456</y>
     </hint>
     <hint type="destinationlabel">
      <x>188</x>
@@ -607,8 +620,8 @@
    <slot>display_sorted_by_team_names_national()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>146</x>
-     <y>458</y>
+     <x>180</x>
+     <y>491</y>
     </hint>
     <hint type="destinationlabel">
      <x>187</x>
@@ -624,11 +637,27 @@
    <hints>
     <hint type="sourcelabel">
      <x>189</x>
-     <y>487</y>
+     <y>520</y>
     </hint>
     <hint type="destinationlabel">
      <x>235</x>
      <y>433</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnChangeStadiumInfo</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_change_stadium_info()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>601</x>
+     <y>700</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>670</x>
+     <y>706</y>
     </hint>
    </hints>
   </connection>
@@ -650,5 +679,6 @@
   <slot>display_sorted_by_team_names_american()</slot>
   <slot>display_sorted_by_team_names_national()</slot>
   <slot>display_sorted_by_grass_surface_and_team_names()</slot>
+  <slot>btn_change_stadium_info()</slot>
  </slots>
 </ui>

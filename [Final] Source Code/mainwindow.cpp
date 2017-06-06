@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     graph = new Baseball_Graph(50);
     graph->initialize_from_file("ILB Weights - Sheet1.csv", 0);
     graph->initialize_from_file("StadiumInfo.txt", 1);
+//    std::cout << graph->get_vcount() << std::endl;
 }
 
 void MainWindow::btn_confirm_handler()
@@ -102,7 +103,69 @@ void MainWindow::btn_confirm_admin_handler()
             }
         }
 
+        if (state_admin == "CHANGE_STADIUM_MODIFY"){
+            if (graph->vertice_exists(selected_stadium)){
+
+//                if (graph->)
+
+                ui->instructions_Admin->setText("View Above For Instructions");
+                state_admin = "NO_STATE";
+            }else{
+                ui->instructions_Admin->setText("Failed to Modify! (stadium):");
+                state_admin = "CHANGE_STADIUM";
+            }
+        }
+
+        if (state_admin == "CHANGE_STADIUM"){
+            if (modify_stadium_interface(input_string)){
+                ui->instructions_Admin->setText("View Above For Instructions");
+                state_admin = "CHANGE_STADIUM_MODIFY";
+                selected_stadium = input_string;
+            }else{
+                ui->instructions_Admin->setText("Failed to Find! (stadium):");
+            }
+        }
+
     }
+}
+
+bool MainWindow::change_stadium_property(std::string input_str)
+{
+//    bool valid = true;
+//    int i = 0;
+
+//    if (input)
+
+//    switch(val){
+//        case 1:
+//        break;
+
+//        case 2:
+//        break;
+
+//        case 3:
+//        break;
+
+//        case 4:
+//        break;
+
+//        case 5:
+//        break;
+
+//        case 6:
+//        break;
+
+//        case 7:
+//        break;
+
+//        case 8:
+//        break;
+
+//        case 9:
+//        break;
+//    }
+
+//    return valid;
 }
 
 MainWindow::~MainWindow()
@@ -317,6 +380,39 @@ bool MainWindow::display_stadium(std::string input_str)
             output_Str += graph->get_stadium_admin(stadium_name_str).display_stadium_info();
             output_Str += "\n";
             output_Str += graph->get_stadium_admin(stadium_name_str).display_souvenirs();
+            ui->displayBox->setText(QString::fromStdString(output_Str));
+        }else{
+            valid = false;
+        }
+    }
+    return valid;
+}
+//stadium_name;
+//team_name;
+//street_address;
+//city_state_zip;
+//box_office_number;
+//date_opened;
+//seating_capacity;
+//american_league;
+//grass;
+bool MainWindow::modify_stadium_interface(std::string input_str)
+{
+    bool valid = true;
+
+    std::string stadium_name_str = input_str;
+    std::string output_Str;
+
+    if (stadium_name_str.empty()){
+        valid = false;
+    }
+    if (valid){
+        if (graph->vertice_exists(stadium_name_str)){
+            output_Str += ">Modify Stadium Info\n";
+            output_Str += "Input: (stadium/1-9/NewProperty)\n";
+
+            output_Str += graph->get_stadium_admin(stadium_name_str).display_stadium_info_numbered();
+            output_Str += "\n";
             ui->displayBox->setText(QString::fromStdString(output_Str));
         }else{
             valid = false;
@@ -588,7 +684,7 @@ void MainWindow::display_sorted_by_team_names_american()
     for (int i = 0; i < american_league_sz; i++){
         i_min = i;
         team1 = american_league[i_min].get_team_name();
-        for (int j = (i + 1); j < sz; j++){
+        for (int j = (i + 1); j < american_league_sz; j++){
             team2 = american_league[j].get_team_name();
             if (team2 < team1){
                 i_min = j;
@@ -631,7 +727,7 @@ void MainWindow::display_sorted_by_team_names_national()
     for (int i = 0; i < national_league_sz; i++){
         i_min = i;
         team1 = national_league[i_min].get_team_name();
-        for (int j = (i + 1); j < sz; j++){
+        for (int j = (i + 1); j < national_league_sz; j++){
             team2 = national_league[j].get_team_name();
             if (team2 < team1){
                 i_min = j;
@@ -681,7 +777,7 @@ void MainWindow::display_sorted_by_grass_surface_and_team_names()
     for (int i = 0; i < grass_stadiums_sz; i++){
         i_min = i;
         grass_team1 = grass_stadiums[i_min].get_team_name();
-        for (int j = (i + 1); j < sz; j++){
+        for (int j = (i + 1); j < grass_stadiums_sz; j++){
             grass_team2 = grass_stadiums[j].get_team_name();
             if (grass_team2 < grass_team1){
                 i_min = j;
@@ -696,7 +792,7 @@ void MainWindow::display_sorted_by_grass_surface_and_team_names()
     for (int i = 0; i < non_grass_stadiums_sz; i++){
         i_min = i;
         grass_team1 = non_grass_stadiums[i_min].get_team_name();
-        for (int j = (i + 1); j < sz; j++){
+        for (int j = (i + 1); j < non_grass_stadiums_sz; j++){
             grass_team2 = non_grass_stadiums[j].get_team_name();
             if (grass_team2 < grass_team1){
                 i_min = j;
@@ -723,4 +819,12 @@ void MainWindow::display_sorted_by_grass_surface_and_team_names()
     }
     ui->displayBox->setText(QString::fromStdString(output_Str));
     ui->instructions->setText("Displayed Sorted By Grass Surface And Team Names!");
+}
+
+void MainWindow::btn_change_stadium_info()
+{
+    if (isAdmin){
+        state_admin = "CHANGE_STADIUM";
+        ui->instructions_Admin->setText("Change (stadium):");
+    }
 }
