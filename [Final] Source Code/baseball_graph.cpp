@@ -49,7 +49,7 @@ else if(type==1){
 //        getline( file, line );
 //        getline( file, line );
 //        getline(file,line);
-        while(isEOF != EOF&&getline(file,line)){
+        while(getline(file,line)){
             std::string name,team_name,street_name,city_state_zip,box_office_num, date_opened;
             std::string month;
             std::string all_months[13]={"","January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -58,6 +58,7 @@ else if(type==1){
            name=line;
 
            getline(file,team_name);
+
            getline(file,street_name);
            getline(file,city_state_zip);
            getline(file,box_office_num);
@@ -90,10 +91,17 @@ else if(type==1){
            seating_cap=seating_cap+stoi(line);
 
            ILB::Stadium temp(name,team_name,street_name,city_state_zip,box_office_num,date_opened,seating_cap,true,true);
-           if(this->vertice_exists(name)){
+
+           if(vertice_exists(name)){
                update_stadium(temp);
+
            }
-           getline(file,line);
+
+
+                getline(file,line);
+                if(file.peek()=='\n')
+                    getline(file,line);
+
 
 
 
@@ -146,6 +154,9 @@ else if(type==1){
            update_stadium(temp);
        }
        getline(file,line);
+
+       if(file.peek()=='\n')
+           getline(file,line);
 
 
 
@@ -228,7 +239,7 @@ int Baseball_Graph::find_index(std::string src){
 }
 bool Baseball_Graph::vertice_exists(std::string src){
     for(int i=0; i<active_v; i++){
-        if(src==array[i]->vert.get_name()){
+        if(src==array[i]->vert.get_stadium_name()){
             return true;
         }
   }
