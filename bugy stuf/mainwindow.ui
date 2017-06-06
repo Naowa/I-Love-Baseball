@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTextEdit" name="displayBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>680</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnConfirm">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>290</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instructions">
+    <property name="geometry">
+     <rect>
+      <x>119</x>
+      <y>290</y>
+      <width>231</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>GUI MOCKUP</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddSouvenir">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>660</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Souvenir</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSortDateOpened">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>330</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sorted By Date Opened</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDelSouvenir">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>660</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Del Souvenir</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDisplayStadium">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>330</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Stadium</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>290</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSortStadiumAlpha">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>360</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sorted By Stadium Names</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSortTeamNameAlpha">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>390</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sorted By Team Names</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnChangeSouvenirPrice">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>720</y>
+      <width>131</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Souvenir Price</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instructions_Admin">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>620</y>
+      <width>361</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Admin Sign In</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>620</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnConfirm_Admin">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>620</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>OK</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddStadium">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>690</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Stadium</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnChangeStadium">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>720</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Stadium</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDisplayPurchases">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>360</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Purchases</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnBuySouvenir">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>330</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Buy Souvenir</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDistanceBetween">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>390</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Distance Between Stadiums</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCT">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>580</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Custom Trip</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>600</y>
+      <width>701</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnChangeSouvenirName">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>690</y>
+      <width>131</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Souvenir Name</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnDisplayAllStadiums">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>330</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display All Stadiums</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSortTeamNameAmerican">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>420</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sorted By American Team Names</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSortTeamNameNational">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>450</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sorted By National Team Names</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSortTeamNameGrass">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>480</y>
+      <width>221</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sorted By Grass Surface and Team Names</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>700</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnConfirm</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_confirm_handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>335</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>694</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnConfirm_Admin</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_confirm_admin_handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>676</x>
+     <y>672</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>695</x>
+     <y>418</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnChangeSouvenirName</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Change_Souvenir_Name_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>734</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>547</x>
+     <y>481</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnChangeSouvenirPrice</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Change_Souvenir_Price_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>774</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>546</x>
+     <y>512</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDisplayStadium</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Display_Stadium_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>401</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>284</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAddSouvenir</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Add_Souvenir_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>714</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>490</x>
+     <y>448</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDelSouvenir</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Del_Souvenir_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>529</x>
+     <y>714</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDisplayPurchases</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Display_Purchases_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>403</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnBuySouvenir</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Buy_Souvenir_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>517</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDisplayAllStadiums</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_Display_All_Stadiums_Handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>648</x>
+     <y>376</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>665</x>
+     <y>285</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnSortDateOpened</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>display_sorted_by_date()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>186</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnSortStadiumAlpha</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>display_sorted_by_stadium_names()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>367</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>258</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnSortTeamNameAlpha</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>display_sorted_by_team_names()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>404</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>255</x>
+     <y>334</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnSortTeamNameAmerican</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>display_sorted_by_team_names_american()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>423</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>363</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnSortTeamNameNational</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>display_sorted_by_team_names_national()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>458</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>187</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnSortTeamNameGrass</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>display_sorted_by_grass_surface_and_team_names()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>189</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>433</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>btn_Add_Souvenir_Handler()</slot>
+  <slot>btn_Del_Souvenir_Handler()</slot>
+  <slot>btn_Display_Stadium_Handler()</slot>
+  <slot>btn_confirm_handler()</slot>
+  <slot>btn_confirm_admin_handler()</slot>
+  <slot>btn_Change_Souvenir_Name_Handler()</slot>
+  <slot>btn_Change_Souvenir_Price_Handler()</slot>
+  <slot>btn_Display_Purchases_Handler()</slot>
+  <slot>btn_Buy_Souvenir_Handler()</slot>
+  <slot>btn_Display_All_Stadiums_Handler()</slot>
+  <slot>display_sorted_by_date()</slot>
+  <slot>display_sorted_by_stadium_names()</slot>
+  <slot>display_sorted_by_team_names()</slot>
+  <slot>display_sorted_by_team_names_american()</slot>
+  <slot>display_sorted_by_team_names_national()</slot>
+  <slot>display_sorted_by_grass_surface_and_team_names()</slot>
+ </slots>
+</ui>
