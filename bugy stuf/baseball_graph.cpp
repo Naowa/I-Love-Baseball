@@ -117,7 +117,6 @@ else if(type==1){
         int seating_cap;
 
        name=line;
-       std::cout << "test";
        getline(file,team_name);
        getline(file,street_name);
        getline(file,city_state_zip);
@@ -221,6 +220,8 @@ int* Baseball_Graph::shortest_path(std::string a, std::string b){
 
 int* Baseball_Graph::planned_path(std::string* planned_stadiums, int planned_visits){
    int* info= new int[2];
+   info[0]=0;
+   info[1]=0;
    ILB::Stadium current(planned_stadiums[0]);
    for(int i=1; i<planned_visits; i++){
        ILB::Stadium next(planned_stadiums[i]);
