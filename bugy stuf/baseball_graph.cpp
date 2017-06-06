@@ -109,6 +109,7 @@ else if(type==1){
         return true;
 
 }else if(type==2){
+
     while(isEOF != EOF&&getline(file,line)){
         std::string name,team_name,street_name,city_state_zip,box_office_num, date_opened;
         std::string month;
@@ -116,7 +117,7 @@ else if(type==1){
         int seating_cap;
 
        name=line;
-
+       std::cout << "test";
        getline(file,team_name);
        getline(file,street_name);
        getline(file,city_state_zip);
@@ -131,7 +132,7 @@ else if(type==1){
 
        getline(file,line,',');
        if(isdigit(line[0])){
-       int day=std::stoi(line);
+        int day=std::stoi(line);
        if(day<10)
            line='0'+line;
        }
@@ -144,12 +145,15 @@ else if(type==1){
        file.ignore(11);
 
        getline(file,line,',');
+       if(isdigit(line[0]))
        seating_cap=std::stoi(line)*1000;
 
        getline(file,line);
+       if(isdigit(line[0]))
        seating_cap=seating_cap+stoi(line);
 
        ILB::Stadium temp(name,team_name,street_name,city_state_zip,box_office_num,date_opened,seating_cap,false,true);
+
        if(this->vertice_exists(name)){
            update_stadium(temp);
        }
