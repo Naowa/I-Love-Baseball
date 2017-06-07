@@ -119,32 +119,6 @@ string ILB::Stadium::display_stadium_info()
 
     return output_Str;
 }
-string ILB::Stadium::display_stadium_info_numbered()
-{
-    string output_Str;
-
-    output_Str += "   1: "; output_Str += stadium_name; output_Str += "\n";
-    output_Str += "   2: "; output_Str += team_name; output_Str += "\n";
-    output_Str += "   3: "; output_Str += street_address; output_Str += "\n";
-    output_Str += "   4: "; output_Str += city_state_zip; output_Str += "\n";
-    output_Str += "   5: "; output_Str += box_office_number; output_Str += "\n";
-    output_Str += "   6: "; output_Str += "Opened - "; output_Str += date_opened; output_Str += "\n";
-    output_Str += "   7: "; output_Str += "Capacity - "; output_Str += to_string(seating_capacity); output_Str += "\n";
-
-    if (grass == true){
-    output_Str += "   8: Grass - y\n";
-    }else{
-    output_Str += "   8: Grass - n\n";
-    }
-
-    if (american_league == true){
-    output_Str += "   9: American League - y\n";
-    }else{
-    output_Str += "   9: American League - n\n";
-    }
-
-    return output_Str;
-}
 
 void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
 {

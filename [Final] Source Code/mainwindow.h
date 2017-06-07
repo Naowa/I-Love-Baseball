@@ -46,13 +46,13 @@ private:
     bool del_souvenir(std::string input_str);
     bool change_souvenir_name(std::string input_str);
     bool change_souvenir_price(std::string input_str);
-    bool modify_stadium_interface(std::string input_str);
     bool change_stadium_property(std::string input_str);
-    std::string selected_stadium;
 
     ///***USER FUNCTIONS
     bool display_stadium(std::string input_str);            //display - takes in a string parameter and displays it to the GUI
     bool buy_souvenir(std::string input_str);
+    bool display_distance_between(std::string input_str);
+    bool display_distance_between_custom_trip(std::string input_str);
 
 
 private slots:
@@ -74,6 +74,8 @@ private slots:
     void display_sorted_by_team_names_national();
     void display_sorted_by_grass_surface_and_team_names();
     void btn_change_stadium_info();
+    void btn_display_distance_between_handler();
+    void btn_display_custom_trip_handler();
 };
 
 //Baseball_Graph gw(50);

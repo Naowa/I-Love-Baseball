@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>800</height>
+    <height>1000</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -196,32 +196,6 @@
      <string>OK</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnAddStadium">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>690</y>
-      <width>101</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add Stadium</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnChangeStadium">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>720</y>
-      <width>101</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Change Stadium</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnDisplayPurchases">
     <property name="geometry">
      <rect>
@@ -264,9 +238,9 @@
    <widget class="QPushButton" name="btnCT">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>580</y>
-      <width>171</width>
+      <x>520</x>
+      <y>390</y>
+      <width>71</width>
       <height>22</height>
      </rect>
     </property>
@@ -352,17 +326,290 @@
      <string>Sorted By Grass Surface and Team Names</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnChangeStadiumInfo">
+   <widget class="QPushButton" name="btn">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>660</y>
-      <width>121</width>
+      <x>360</x>
+      <y>910</y>
+      <width>111</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
      <string>Change Stadium Info</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAddStadium">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>880</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Stadium</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_2">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>660</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>660</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_3">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>680</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>680</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_4">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>700</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>700</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>720</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_5">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>720</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>740</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_6">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>740</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_7">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>760</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>760</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_8">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>780</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>780</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>800</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_9">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>800</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_10">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>820</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_9">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>820</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="inputBox_Admin_11">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>840</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="instruct_10">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>840</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Select Stadium</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>
@@ -646,18 +893,50 @@
    </hints>
   </connection>
   <connection>
-   <sender>btnChangeStadiumInfo</sender>
+   <sender>btn</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>btn_change_stadium_info()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>601</x>
-     <y>700</y>
+     <x>407</x>
+     <y>952</y>
     </hint>
     <hint type="destinationlabel">
-     <x>670</x>
-     <y>706</y>
+     <x>648</x>
+     <y>704</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDistanceBetween</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_display_distance_between_handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>504</x>
+     <y>431</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>522</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnCT</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>btn_display_custom_trip_handler()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>535</x>
+     <y>432</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>597</x>
+     <y>413</y>
     </hint>
    </hints>
   </connection>
@@ -680,5 +959,7 @@
   <slot>display_sorted_by_team_names_national()</slot>
   <slot>display_sorted_by_grass_surface_and_team_names()</slot>
   <slot>btn_change_stadium_info()</slot>
+  <slot>btn_display_distance_between_handler()</slot>
+  <slot>btn_display_custom_trip_handler()</slot>
  </slots>
 </ui>

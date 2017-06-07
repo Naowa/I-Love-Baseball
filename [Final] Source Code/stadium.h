@@ -32,7 +32,6 @@ public:
     void add_souvenir(std::string input_item_name, double input_item_price);             //add_souvenir - adds a new souvenir to the souvenirs vector
     std::string display_souvenirs();                                                       ///**display_souvenirs - displays souvenirs to console (test function)
     std::string display_stadium_info();                                                    ///**display_stadium_info - displays stadium info to console (test function)
-    std::string display_stadium_info_numbered();                                                    ///**display_stadium_info - displays stadium info to console (test function)
     Souvenir operator[] (int index);                                               //operator [] - overloaded bracket operator for souvenirs vector
     Souvenir operator[] (std::string name);
     Souvenir get_souvenir(std::string name);
