@@ -22,6 +22,8 @@ public:
     int find_index(ILB::Stadium);
     bool vertice_exists(ILB::Stadium);
     int shortest_ham_path(int);
+    int get_american_count();
+    int get_national_count();
 
 
 

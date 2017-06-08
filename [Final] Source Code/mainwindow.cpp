@@ -6,6 +6,22 @@
 
 using std::string;
 
+/**********************************************************
+ *
+ * MainWindow
+ *_________________________________________________________
+ * default constructor, loads the ui
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * state: stores state of gui
+ * state_admin: stores state of admin gui
+ * isAdmin: determines if user is admin
+ * graph: stores graph
+ * ui: stores ui
+ *
+ **********************************************************/
+
 //O(n^4)
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,8 +38,21 @@ MainWindow::MainWindow(QWidget *parent) :
     graph->initialize_from_file("ILB Weights - Sheet1.csv", 0);
     graph->initialize_from_file("StadiumInfo.txt", 1);
     graph->initialize_from_file("NationalStadiums.txt", 2);
-//    std::cout << graph->get_vcount() << std::endl;
 }
+
+/**********************************************************
+ *
+ * btn_confirm_handler
+ *_________________________________________________________
+ * confirm button handler
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * state: stores state of gui
+ * instructions: guides the user
+ * ui: stores ui
+ *
+ **********************************************************/
 
 //O(n)
 void MainWindow::btn_confirm_handler()
@@ -70,6 +99,21 @@ void MainWindow::btn_confirm_handler()
         }
     }
 }
+
+/**********************************************************
+ *
+ * btn_confirm_admin_handler
+ *_________________________________________________________
+ * confirm button handler
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * state_admin: stores state of gui
+ * isAdmin: stores bool for admin
+ * instructions: guides the user
+ * ui: stores ui
+ *
+ **********************************************************/
 
 //O(n)
 void MainWindow::btn_confirm_admin_handler()
@@ -128,11 +172,36 @@ void MainWindow::btn_confirm_admin_handler()
     }
 }
 
+/**********************************************************
+ *
+ * ~MainWindow
+ *_________________________________________________________
+ * destructor
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: stores ui
+ *
+ **********************************************************/
+
 //O(1)
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+/**********************************************************
+ *
+ * add_souvenir
+ *_________________________________________________________
+ * adds souvenir to stadium
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs the graph
+ * input_str: needs user input
+ *
+ **********************************************************/
 
 //O(n^2)
 bool MainWindow::add_souvenir(std::string input_str)
@@ -198,6 +267,19 @@ bool MainWindow::add_souvenir(std::string input_str)
     return valid;
 }
 
+/**********************************************************
+ *
+ * del_souvenir
+ *_________________________________________________________
+ * deletes souvenir from stadium
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs the graph
+ * input_str: needs user input
+ *
+ **********************************************************/
+
 //O(n^3)
 bool MainWindow::del_souvenir(std::string input_str)
 {
@@ -228,6 +310,19 @@ bool MainWindow::del_souvenir(std::string input_str)
     }
     return valid;
 }
+
+/**********************************************************
+ *
+ * change_souvenir_name
+ *_________________________________________________________
+ * changes souvenir name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs the graph
+ * input_str: needs user input
+ *
+ **********************************************************/
 
 //O(n^2)
 bool MainWindow::change_souvenir_name(std::string input_str)
@@ -262,6 +357,19 @@ bool MainWindow::change_souvenir_name(std::string input_str)
     }
     return valid;
 }
+
+/**********************************************************
+ *
+ * change_souvenir_price
+ *_________________________________________________________
+ * changes souvenir price
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs the graph
+ * input_str: needs user input
+ *
+ **********************************************************/
 
 //O(n^4)
 bool MainWindow::change_souvenir_price(std::string input_str)
@@ -330,6 +438,19 @@ bool MainWindow::change_souvenir_price(std::string input_str)
     return valid;
 }
 
+/**********************************************************
+ *
+ * display_stadium
+ *_________________________________________________________
+ * changes souvenir price
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs the graph
+ * input_str: needs user input
+ *
+ **********************************************************/
+
 //O(n^2)
 bool MainWindow::display_stadium(std::string input_str)
 {
@@ -354,17 +475,56 @@ bool MainWindow::display_stadium(std::string input_str)
     return valid;
 }
 
+/**********************************************************
+ *
+ * get_Str_Input
+ *_________________________________________________________
+ * gets user string input
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ *
+ **********************************************************/
+
 //O(1)
 std::string MainWindow::get_Str_Input()
 {
     return ui->inputBox->text().toStdString();
 }
 
+/**********************************************************
+ *
+ * get_Str_Input_Admin
+ *_________________________________________________________
+ * gets admin string input
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ *
+ **********************************************************/
+
 //O(1)
 std::string MainWindow::get_Str_Input_Admin()
 {
     return ui->inputBox_Admin->text().toStdString();
 }
+
+/**********************************************************
+ *
+ * btn_Add_Souvenir_Handler
+ *_________________________________________________________
+ * adds souvenir to stadium
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ * isAdmin: needs admin bool
+ * state_admin: needs admin state
+ * instructions_Admin: guides the admin
+ *
+ **********************************************************/
 
 //O(1)
 void MainWindow::btn_Add_Souvenir_Handler()
@@ -375,6 +535,21 @@ void MainWindow::btn_Add_Souvenir_Handler()
     }
 }
 
+/**********************************************************
+ *
+ * btn_Del_Souvenir_Handler
+ *_________________________________________________________
+ * deletes souvenir
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ * isAdmin: needs admin bool
+ * state_admin: needs admin state
+ * instructions_Admin: guides the admin
+ *
+ **********************************************************/
+
 //O(n)
 void MainWindow::btn_Del_Souvenir_Handler()
 {
@@ -383,6 +558,21 @@ void MainWindow::btn_Del_Souvenir_Handler()
         ui->instructions_Admin->setText("Remove (stadium/name):");
     }
 }
+
+/**********************************************************
+ *
+ * btn_Change_Souvenir_Name_Handler
+ *_________________________________________________________
+ * changes souvenir name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ * isAdmin: needs admin bool
+ * state_admin: needs admin state
+ * instructions_Admin: guides the admin
+ *
+ **********************************************************/
 
 //O(n)
 void MainWindow::btn_Change_Souvenir_Name_Handler()
@@ -393,6 +583,21 @@ void MainWindow::btn_Change_Souvenir_Name_Handler()
     }
 }
 
+/**********************************************************
+ *
+ * btn_Change_Souvenir_Price_Handler
+ *_________________________________________________________
+ * changes souvenir price
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ * isAdmin: needs admin bool
+ * state_admin: needs admin state
+ * instructions_Admin: guides the admin
+ *
+ **********************************************************/
+
 //O(n)
 void MainWindow::btn_Change_Souvenir_Price_Handler()
 {
@@ -402,6 +607,20 @@ void MainWindow::btn_Change_Souvenir_Price_Handler()
     }
 }
 
+/**********************************************************
+ *
+ * btn_Display_Stadium_Handler
+ *_________________________________________________________
+ * displays stadium information
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ * state: needs admin state
+ * instructions: guides the admin
+ *
+ **********************************************************/
+
 //O(n)
 void MainWindow::btn_Display_Stadium_Handler()
 {
@@ -409,12 +628,39 @@ void MainWindow::btn_Display_Stadium_Handler()
     ui->instructions->setText("Display (stadium):");
 }
 
+/**********************************************************
+ *
+ * btn_Buy_Souvenir_Handler
+ *_________________________________________________________
+ * allows buying of souvenirs
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs the ui
+ * state: needs admin state
+ * instructions: guides the admin
+ *
+ **********************************************************/
+
 //O(1)
 void MainWindow::btn_Buy_Souvenir_Handler()
 {
     state = "BUY_SOUVENIR";
     ui->instructions->setText("Buy (stadium/name):");
 }
+
+/**********************************************************
+ *
+ * buy_souvenir
+ *_________________________________________________________
+ * allows buying of souvenirs
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * input_str: needs an input string
+ * graph: needs a graph
+ *
+ **********************************************************/
 
 //O(n^2)
 bool MainWindow::buy_souvenir(std::string input_str)
@@ -453,6 +699,19 @@ bool MainWindow::buy_souvenir(std::string input_str)
     return valid;
 }
 
+/**********************************************************
+ *
+ * btn_Display_Purchases_Handler
+ *_________________________________________________________
+ * displays purchases
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * instructions: needs instructions
+ * ui: needs a ui
+ *
+ **********************************************************/
+
 //O(n)
 void MainWindow::btn_Display_Purchases_Handler()
 {
@@ -461,6 +720,20 @@ void MainWindow::btn_Display_Purchases_Handler()
     ui->displayBox->setText(QString::fromStdString(output_Str));
     ui->instructions->setText("Displayed!");
 }
+
+/**********************************************************
+ *
+ * valid_string
+ *_________________________________________________________
+ * checks if a string is valid
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * val: needs a string to check
+ * input_str: needs a string copy
+ * i: needs an incrementing value
+ *
+ **********************************************************/
 
 //O(n)
 bool MainWindow::valid_string(std::string &val, std::string input_str, int &i)
@@ -479,6 +752,21 @@ bool MainWindow::valid_string(std::string &val, std::string input_str, int &i)
     return valid;
 }
 
+/**********************************************************
+ *
+ * btn_Display_All_Stadiums_Handler
+ *_________________________________________________________
+ * displays all stadiums to gui
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * ui: needs a ui
+ * displayBox: needs a display box
+ * instructions: needs instructions
+ * graph: needs a graph
+ *
+ **********************************************************/
+
 //O(n)
 void MainWindow::btn_Display_All_Stadiums_Handler()
 {
@@ -491,6 +779,18 @@ void MainWindow::btn_Display_All_Stadiums_Handler()
     ui->displayBox->setText(QString::fromStdString(output_Str));
     ui->instructions->setText("Displayed!");
 }
+
+/**********************************************************
+ *
+ * to_lexicographical_order
+ *_________________________________________________________
+ * converts date format to lexicographical order
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * date: needs a date
+ *
+ **********************************************************/
 
 //O(1)
 string MainWindow::to_lexicographical_order(string date)
@@ -507,6 +807,18 @@ string MainWindow::to_lexicographical_order(string date)
 
     return answer;
 }
+
+/**********************************************************
+ *
+ * display_sorted_by_date
+ *_________________________________________________________
+ * converts date format to lexicographical order
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * date: needs a date
+ *
+ **********************************************************/
 
 //O(n^2)
 void MainWindow::display_sorted_by_date()
@@ -542,6 +854,20 @@ void MainWindow::display_sorted_by_date()
     ui->instructions->setText("Displayed Sorted By Date Opened!");
 }
 
+/**********************************************************
+ *
+ * display_sorted_by_stadium_names
+ *_________________________________________________________
+ * displays stadiums based on stadium names
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * displayBox: needs a display box
+ * instructions: needs instructions
+ *
+ **********************************************************/
+
 //O(n^2)
 void MainWindow::display_sorted_by_stadium_names()
 {
@@ -575,6 +901,20 @@ void MainWindow::display_sorted_by_stadium_names()
     ui->displayBox->setText(QString::fromStdString(output_Str));
     ui->instructions->setText("Displayed Sorted By Stadium Names!");
 }
+
+/**********************************************************
+ *
+ * display_sorted_by_team_names
+ *_________________________________________________________
+ * displays stadiums based on team names
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * displayBox: needs a display box
+ * instructions: needs instructions
+ *
+ **********************************************************/
 
 //O(n^2)
 void MainWindow::display_sorted_by_team_names()
@@ -610,6 +950,20 @@ void MainWindow::display_sorted_by_team_names()
     ui->instructions->setText("Displayed Sorted By Team Names!");
 }
 
+/**********************************************************
+ *
+ * display_sorted_by_team_names_american
+ *_________________________________________________________
+ * displays stadiums based on american team names
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * displayBox: needs a display box
+ * instructions: needs instructions
+ *
+ **********************************************************/
+
 //O(n^3)
 void MainWindow::display_sorted_by_team_names_american()
 {
@@ -627,7 +981,6 @@ void MainWindow::display_sorted_by_team_names_american()
                 american_league_sz++;
             }
         }
-        std::cout << "american_league_sz: " << american_league_sz << std::endl;
 
     string team1, team2;
 
@@ -654,6 +1007,20 @@ void MainWindow::display_sorted_by_team_names_american()
     ui->instructions->setText("Displayed Sorted By American Team Names!");
 }
 
+/**********************************************************
+ *
+ * display_sorted_by_team_names_national
+ *_________________________________________________________
+ * displays stadiums based on national team names
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * displayBox: needs a display box
+ * instructions: needs instructions
+ *
+ **********************************************************/
+
 //O(n^3)
 void MainWindow::display_sorted_by_team_names_national()
 {
@@ -671,7 +1038,6 @@ void MainWindow::display_sorted_by_team_names_national()
                 national_league_sz++;
             }
         }
-        std::cout << "national_league_sz: " << national_league_sz << std::endl;
 
     string team1, team2;
 
@@ -698,6 +1064,20 @@ void MainWindow::display_sorted_by_team_names_national()
     ui->instructions->setText("Displayed Sorted By National Team Names!");
 }
 
+/**********************************************************
+ *
+ * display_sorted_by_grass_surface_and_team_names
+ *_________________________________________________________
+ * displays stadiums based on grass surface and team names
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * displayBox: needs a display box
+ * instructions: needs instructions
+ *
+ **********************************************************/
+
 //O(n^4)
 void MainWindow::display_sorted_by_grass_surface_and_team_names()
 {
@@ -721,8 +1101,6 @@ void MainWindow::display_sorted_by_grass_surface_and_team_names()
                 non_grass_stadiums_sz++;
             }
         }
-        std::cout << "grass_stadiums_sz: " << grass_stadiums_sz << std::endl;
-        std::cout << "non_grass_stadiums_sz: " << non_grass_stadiums_sz << std::endl;
 
     string grass_team1, grass_team2;
 
@@ -773,12 +1151,40 @@ void MainWindow::display_sorted_by_grass_surface_and_team_names()
     ui->instructions->setText("Displayed Sorted By Grass Surface And Team Names!");
 }
 
+/**********************************************************
+ *
+ * btn_display_distance_between_handler
+ *_________________________________________________________
+ * displays distance between stadiums
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * state: needs a state
+ * ui: needs a ui
+ * instructions: needs instructions
+ *
+ **********************************************************/
+
 //O(1)
 void MainWindow::btn_display_distance_between_handler()
 {
     state = "DISTANCE";
     ui->instructions->setText("Distance (stadium1/stadium2):");
 }
+
+/**********************************************************
+ *
+ * display_distance_between
+ *_________________________________________________________
+ * displays distance between stadiums
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * displayBox: needs a display box
+ * input_str: needs an input str
+ *
+ **********************************************************/
 
 //O(n^3)
 bool MainWindow::display_distance_between(std::string input_str)
@@ -818,12 +1224,40 @@ bool MainWindow::display_distance_between(std::string input_str)
     return valid;
 }
 
+/**********************************************************
+ *
+ * btn_display_custom_trip_handler
+ *_________________________________________________________
+ * displays custom trip info
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * state: needs a state
+ * ui: needs a ui
+ * instructions: needs instructions
+ *
+ **********************************************************/
+
 //O(1)
 void MainWindow::btn_display_custom_trip_handler()
 {
     state = "CUSTOM_TRIP";
     ui->instructions->setText("Custom Trip: (stadium1/stadium2/stadium3/...)");
 }
+
+/**********************************************************
+ *
+ * display_distance_between_custom_trip
+ *_________________________________________________________
+ * displays custom trip info
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * displayBox: needs a display box
+ * input_str: needs an input str
+ *
+ **********************************************************/
 
 //O(n^2)
 bool MainWindow::display_distance_between_custom_trip(std::string input_str)
@@ -852,11 +1286,6 @@ bool MainWindow::display_distance_between_custom_trip(std::string input_str)
         i++;
     }
 
-    for (int i = 0; i < stadium_collection_sz; i++){
-        std::cout << stadium_collection[i] << std::endl;
-    }
-    std::cout << std::endl;
-
     if (stadium_collection_sz == 0){
         valid = false;
     }
@@ -871,6 +1300,21 @@ bool MainWindow::display_distance_between_custom_trip(std::string input_str)
     }
     return valid;
 }
+
+/**********************************************************
+ *
+ * change_stadium_property
+ *_________________________________________________________
+ * changes stadium properties
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * isAdmin: needs admin bool
+ * instructions_Admin_Special: needs admin instructions
+ * graph: needs a graph
+ * ui: needs a ui
+ *
+ **********************************************************/
 
 //O(n)
 void MainWindow::change_stadium_property()
@@ -944,6 +1388,21 @@ void MainWindow::change_stadium_property()
     }
 }
 
+/**********************************************************
+ *
+ * add_stadium
+ *_________________________________________________________
+ * adds a stadium
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * isAdmin: needs admin bool
+ * instructions_Admin_Special: needs admin instructions
+ * graph: needs a graph
+ * ui: needs a ui
+ *
+ **********************************************************/
+
 //O(n^2)
 void MainWindow::add_stadium()
 {
@@ -1004,18 +1463,46 @@ void MainWindow::add_stadium()
     }
 }
 
+/**********************************************************
+ *
+ * btn_TRIP_major_league_shortest
+ *_________________________________________________________
+ * displays major league trip information
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * ui: needs a ui
+ * displayBox: needs a displaybox
+ *
+ **********************************************************/
+
 //O(1)
 void MainWindow::btn_TRIP_major_league_shortest()
 {
     std::string output_Str;
 
     int distance = graph->shortest_ham_path(0);
-    int visited = 1337;
+    int visited = (graph->get_american_count() + graph->get_national_count());
     output_Str += "Major League Trip Info:\n";
     output_Str += "Distance: "; output_Str += std::to_string(distance); output_Str += "\n";
     output_Str += "Total Locations Visited: "; output_Str += std::to_string(visited); output_Str += "\n";
     ui->displayBox->setText(QString::fromStdString(output_Str));
 }
+
+/**********************************************************
+ *
+ * btn_TRIP_american_league_shortest
+ *_________________________________________________________
+ * displays american league trip information
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * ui: needs a ui
+ * displayBox: needs a displaybox
+ *
+ **********************************************************/
 
 //O(1)
 void MainWindow::btn_TRIP_american_league_shortest()
@@ -1023,12 +1510,26 @@ void MainWindow::btn_TRIP_american_league_shortest()
     std::string output_Str;
 
     int distance = graph->shortest_ham_path(1);
-    int visited = 1337;
+    int visited = graph->get_american_count();
     output_Str += "American League Trip Info:\n";
     output_Str += "Distance: "; output_Str += std::to_string(distance); output_Str += "\n";
     output_Str += "Total Locations Visited: "; output_Str += std::to_string(visited); output_Str += "\n";
     ui->displayBox->setText(QString::fromStdString(output_Str));
 }
+
+/**********************************************************
+ *
+ * btn_TRIP_national_league_shortest
+ *_________________________________________________________
+ * displays national league trip information
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * graph: needs a graph
+ * ui: needs a ui
+ * displayBox: needs a displaybox
+ *
+ **********************************************************/
 
 //O(1)
 void MainWindow::btn_TRIP_national_league_shortest()
@@ -1036,7 +1537,7 @@ void MainWindow::btn_TRIP_national_league_shortest()
     std::string output_Str;
 
     int distance = graph->shortest_ham_path(2);
-    int visited = 1337;
+    int visited = graph->get_national_count();
     output_Str += "National League Trip Info:\n";
     output_Str += "Distance: "; output_Str += std::to_string(distance); output_Str += "\n";
     output_Str += "Total Locations Visited: "; output_Str += std::to_string(visited); output_Str += "\n";

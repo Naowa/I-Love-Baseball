@@ -53,8 +53,6 @@ private:
     bool display_distance_between(std::string input_str);                   //display_distance_between - displays distance between stadiums
     bool display_distance_between_custom_trip(std::string input_str);       //display_distance_between_custom_trip - displays distance between custom trips generated
 
-    ///***Initialize Stadium Count
-
 private slots:
     //Button Slot Functions
     void btn_confirm_handler();                     //btn_confirm_handler - confirms user input
@@ -76,10 +74,10 @@ private slots:
     void btn_display_distance_between_handler();    //btn_display_distance_between_handler - handles displaying distance between stadiums
     void btn_display_custom_trip_handler();         //btn_display_custom_trip_handler - handles custom trip displaying
     void change_stadium_property();                 //change_stadium_property - handles changing stadium properties
-void add_stadium();                                 //add_stadium - adds stadium to graph
-void btn_TRIP_major_league_shortest();              //btn_TRIP_major_league_shortest - displays shortest pathing for mlb stadiums
-void btn_TRIP_american_league_shortest();           //btn_TRIP_american_league_shortest - displays shortest pathing for american league stadiums
-void btn_TRIP_national_league_shortest();           //btn_TRIP_national_league_shortest - displays shortest pathing for nationa league stadiums
+    void add_stadium();                             //add_stadium - adds stadium to graph
+    void btn_TRIP_major_league_shortest();          //btn_TRIP_major_league_shortest - displays shortest pathing for mlb stadiums
+    void btn_TRIP_american_league_shortest();       //btn_TRIP_american_league_shortest - displays shortest pathing for american league stadiums
+    void btn_TRIP_national_league_shortest();       //btn_TRIP_national_league_shortest - displays shortest pathing for nationa league stadiums
 };
 
 //Baseball_Graph gw(50);

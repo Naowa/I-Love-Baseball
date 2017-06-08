@@ -329,9 +329,27 @@ else if(path==0){
  }
 
    int sum=0;
-   for(int i=1; i<active_v-1; i++){
+   for(int i=1; i<active_v; i++){
        sum+=array[i]->weights[p[i]];
    }
 
    return sum;
+}
+
+int Baseball_Graph::get_american_count(){
+    int count=0;
+    for(int i=0; i<active_v; i++)
+        if(array[i]->vert.get_american_league())
+            count++;
+
+    return count;
+}
+
+int Baseball_Graph::get_national_count(){
+    int count=0;
+    for(int i=0; i<active_v; i++)
+        if(!array[i]->vert.get_american_league())
+            count++;
+
+    return count;
 }

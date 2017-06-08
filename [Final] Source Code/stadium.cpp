@@ -7,6 +7,18 @@ using std::to_string;
 using std::cout;
 using std::endl;
 
+/**********************************************************
+ *
+ * Stadium
+ *_________________________________________________________
+ * default constructor
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * needs all stadium info
+ *
+ **********************************************************/
+
 //O(1)
 ILB::Stadium::Stadium() : Vertex(){
     stadium_name = "NO STADIUM NAME";
@@ -22,6 +34,18 @@ ILB::Stadium::Stadium() : Vertex(){
 
 }
 
+/**********************************************************
+ *
+ * Stadium
+ *_________________________________________________________
+ * one param constructor
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * needs all stadium info
+ *
+ **********************************************************/
+
 //O(1)
 ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name){
     stadium_name = input_stadium_name;
@@ -36,6 +60,18 @@ ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name){
     this->initialize_souvenirs();
     name=stadium_name;
 }
+
+/**********************************************************
+ *
+ * Stadium
+ *_________________________________________________________
+ * multi param constructor
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * needs all stadium info
+ *
+ **********************************************************/
 
 //O(1)
 ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string input_street_address,
@@ -53,6 +89,18 @@ ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string 
     this->initialize_souvenirs();
     name=stadium_name;
 }
+
+/**********************************************************
+ *
+ * initialize_souvenirs
+ *_________________________________________________________
+ * initializes souvenirs
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * souvenirs: needs a souvenirs vector
+ *
+ **********************************************************/
 
 //O(1)
 void ILB::Stadium::initialize_souvenirs() {
@@ -84,6 +132,18 @@ void ILB::Stadium::initialize_souvenirs() {
 
 }
 
+/**********************************************************
+ *
+ * operator[]
+ *_________________________________________________________
+ * accesses a souvenir based on index
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * souvenirs: needs a souvenirs vector
+ *
+ **********************************************************/
+
 //O(1)
 ILB::Souvenir ILB::Stadium::operator[] (int index)
 {
@@ -92,10 +152,35 @@ ILB::Souvenir ILB::Stadium::operator[] (int index)
     return souvenirs[index];
 }
 
+/**********************************************************
+ *
+ * operator[]
+ *_________________________________________________________
+ * accesses a souvenir based on name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * name: needs a name of a souvenir
+ *
+ **********************************************************/
+
 //O(1)
 ILB::Souvenir ILB::Stadium::operator[] (string name) {
     return this->get_souvenir(name);
 }
+
+/**********************************************************
+ *
+ * get_souvenir
+ *_________________________________________________________
+ * returns a souvenir object with a name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * name: needs a name of a souvenir
+ * souvenirs: needs a vector of souvenirs
+ *
+ **********************************************************/
 
 //O(n)
 ILB::Souvenir ILB::Stadium::get_souvenir(string name) {
@@ -111,6 +196,18 @@ ILB::Souvenir ILB::Stadium::get_souvenir(string name) {
         cout << "Souvenir not found." << endl;
     }
 }
+
+/**********************************************************
+ *
+ * display_stadium_info
+ *_________________________________________________________
+ * displays stadium info by returning a string
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * needs all stadium properties
+ *
+ **********************************************************/
 
 //O(1)
 string ILB::Stadium::display_stadium_info()
@@ -128,6 +225,19 @@ string ILB::Stadium::display_stadium_info()
     return output_Str;
 }
 
+/**********************************************************
+ *
+ * add_souvenir
+ *_________________________________________________________
+ * adds a souvenir to souvenirs vector
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * input_item_name: needs an item name
+ * input_item_price: needs an item price
+ *
+ **********************************************************/
+
 //O(1)
 void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
 {
@@ -138,6 +248,19 @@ void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
 
     souvenirs.push_back(new_souvenir);
 }
+
+/**********************************************************
+ *
+ * remove_souvenir
+ *_________________________________________________________
+ * removes a souvenir
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * souvenirs: needs a souvenirs vector
+ * target_item_name: needs a target item name
+ *
+ **********************************************************/
 
 //O(n)
 bool ILB::Stadium::remove_souvenir(string target_item_name)
@@ -150,6 +273,18 @@ bool ILB::Stadium::remove_souvenir(string target_item_name)
     }
     return false;
 }
+
+/**********************************************************
+ *
+ * display_souvenirs
+ *_________________________________________________________
+ * displays souvenirs
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * souvenirs: needs a souvenirs vector
+ *
+ **********************************************************/
 
 //O(n)
 string ILB::Stadium::display_souvenirs()
@@ -167,6 +302,20 @@ string ILB::Stadium::display_souvenirs()
     return output_Str;
 }
 
+/**********************************************************
+ *
+ * change_souvenir_name
+ *_________________________________________________________
+ * changes souvenir names
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * souvenirs: needs a souvenirs vector
+ * name: needs a name of souvenir
+ * new_name: needs a new name to change souvenir name
+ *
+ **********************************************************/
+
 //O(n)
 bool ILB::Stadium::change_souvenir_name(string name, string new_name) {
     for (int i = 0; i < souvenirs.size(); i++){
@@ -178,6 +327,20 @@ bool ILB::Stadium::change_souvenir_name(string name, string new_name) {
     return false;
 }
 
+/**********************************************************
+ *
+ * change_souvenir_price
+ *_________________________________________________________
+ * changes souvenir prices
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * souvenirs: needs a souvenirs vector
+ * name: needs a name of souvenir
+ * price: needs new price
+ *
+ **********************************************************/
+
 //O(n)
 bool ILB::Stadium::change_souvenir_price(string name, double price) {
     for (int i = 0; i < souvenirs.size(); i++){
@@ -188,6 +351,19 @@ bool ILB::Stadium::change_souvenir_price(string name, double price) {
     }
     return false;
 }
+
+/**********************************************************
+ *
+ * operator =
+ *_________________________________________________________
+ * assignment operator
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * needs all stadium properties
+ * B: needs a stadium
+ *
+ **********************************************************/
 
 //O(1)
 ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
@@ -206,15 +382,51 @@ ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
 
 }
 
+/**********************************************************
+ *
+ * operator ==
+ *_________________________________________________________
+ * comparison operator
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * stadium_name: needs a stadium name
+ *
+ **********************************************************/
+
 //O(1)
 bool ILB::Stadium::operator ==(ILB::Stadium& B){
     return(this->stadium_name==B.stadium_name);
 }
 
+/**********************************************************
+ *
+ * operator ==
+ *_________________________________________________________
+ * comparison operator
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * stadium_name: needs a stadium name
+ *
+ **********************************************************/
+
 //O(1)
 bool ILB::Stadium::operator ==(std::string B){
     return(this->stadium_name==B);
 }
+
+/**********************************************************
+ *
+ * find_souvenir
+ *_________________________________________________________
+ * finds a souvenir with item name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * The following will need defined values
+ * target_item_name: needs a target item name
+ *
+ **********************************************************/
 
 //O(n)
 bool ILB::Stadium::find_souvenir(std::string target_item_name)
