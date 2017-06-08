@@ -21,6 +21,8 @@ public:
     bool vertice_exists(std::string);
     int find_index(ILB::Stadium);
     bool vertice_exists(ILB::Stadium);
+    int shortest_ham_path(int);
+
 
 
 

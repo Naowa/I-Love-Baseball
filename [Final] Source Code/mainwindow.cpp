@@ -6,6 +6,7 @@
 
 using std::string;
 
+//O(n^4)
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -24,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    std::cout << graph->get_vcount() << std::endl;
 }
 
+//O(n)
 void MainWindow::btn_confirm_handler()
 {
     std::string input_string = get_Str_Input();
@@ -69,6 +71,7 @@ void MainWindow::btn_confirm_handler()
     }
 }
 
+//O(n)
 void MainWindow::btn_confirm_admin_handler()
 {
     std::string input_string = get_Str_Input_Admin();
@@ -122,24 +125,16 @@ void MainWindow::btn_confirm_admin_handler()
             }
         }
 
-        if (state_admin == "CHANGE_STADIUM"){
-            if (change_stadium_property(input_string)){
-                ui->instructions_Admin->setText("Stadium Info Updated!");
-                state_admin = "NO_STATE";
-            }else{
-                ui->instructions_Admin->setText("Failed to Change!");
-                state_admin = "NO_STATE";
-            }
-        }
-
     }
 }
 
+//O(1)
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+//O(n^2)
 bool MainWindow::add_souvenir(std::string input_str)
 {
     bool valid = true;
@@ -203,6 +198,7 @@ bool MainWindow::add_souvenir(std::string input_str)
     return valid;
 }
 
+//O(n^3)
 bool MainWindow::del_souvenir(std::string input_str)
 {
     bool valid = true;
@@ -233,6 +229,7 @@ bool MainWindow::del_souvenir(std::string input_str)
     return valid;
 }
 
+//O(n^2)
 bool MainWindow::change_souvenir_name(std::string input_str)
 {
     bool valid = true;
@@ -266,6 +263,7 @@ bool MainWindow::change_souvenir_name(std::string input_str)
     return valid;
 }
 
+//O(n^4)
 bool MainWindow::change_souvenir_price(std::string input_str)
 {
     bool valid = true;
@@ -332,6 +330,7 @@ bool MainWindow::change_souvenir_price(std::string input_str)
     return valid;
 }
 
+//O(n^2)
 bool MainWindow::display_stadium(std::string input_str)
 {
     bool valid = true;
@@ -355,16 +354,19 @@ bool MainWindow::display_stadium(std::string input_str)
     return valid;
 }
 
+//O(1)
 std::string MainWindow::get_Str_Input()
 {
     return ui->inputBox->text().toStdString();
 }
 
+//O(1)
 std::string MainWindow::get_Str_Input_Admin()
 {
     return ui->inputBox_Admin->text().toStdString();
 }
 
+//O(1)
 void MainWindow::btn_Add_Souvenir_Handler()
 {
     if (isAdmin){
@@ -373,6 +375,7 @@ void MainWindow::btn_Add_Souvenir_Handler()
     }
 }
 
+//O(n)
 void MainWindow::btn_Del_Souvenir_Handler()
 {
     if (isAdmin){
@@ -381,6 +384,7 @@ void MainWindow::btn_Del_Souvenir_Handler()
     }
 }
 
+//O(n)
 void MainWindow::btn_Change_Souvenir_Name_Handler()
 {
     if (isAdmin){
@@ -389,6 +393,7 @@ void MainWindow::btn_Change_Souvenir_Name_Handler()
     }
 }
 
+//O(n)
 void MainWindow::btn_Change_Souvenir_Price_Handler()
 {
     if (isAdmin){
@@ -397,18 +402,21 @@ void MainWindow::btn_Change_Souvenir_Price_Handler()
     }
 }
 
+//O(n)
 void MainWindow::btn_Display_Stadium_Handler()
 {
     state = "DISPLAY_STADIUM";
     ui->instructions->setText("Display (stadium):");
 }
 
+//O(1)
 void MainWindow::btn_Buy_Souvenir_Handler()
 {
     state = "BUY_SOUVENIR";
     ui->instructions->setText("Buy (stadium/name):");
 }
 
+//O(n^2)
 bool MainWindow::buy_souvenir(std::string input_str)
 {
     bool valid = true;
@@ -445,6 +453,7 @@ bool MainWindow::buy_souvenir(std::string input_str)
     return valid;
 }
 
+//O(n)
 void MainWindow::btn_Display_Purchases_Handler()
 {
     std::string output_Str;
@@ -453,6 +462,7 @@ void MainWindow::btn_Display_Purchases_Handler()
     ui->instructions->setText("Displayed!");
 }
 
+//O(n)
 bool MainWindow::valid_string(std::string &val, std::string input_str, int &i)
 {
     bool valid = true;
@@ -469,6 +479,7 @@ bool MainWindow::valid_string(std::string &val, std::string input_str, int &i)
     return valid;
 }
 
+//O(n)
 void MainWindow::btn_Display_All_Stadiums_Handler()
 {
     std::string output_Str;
@@ -481,6 +492,7 @@ void MainWindow::btn_Display_All_Stadiums_Handler()
     ui->instructions->setText("Displayed!");
 }
 
+//O(1)
 string MainWindow::to_lexicographical_order(string date)
 {
     string answer;
@@ -496,6 +508,7 @@ string MainWindow::to_lexicographical_order(string date)
     return answer;
 }
 
+//O(n^2)
 void MainWindow::display_sorted_by_date()
 {
     std::string output_Str;
@@ -529,6 +542,7 @@ void MainWindow::display_sorted_by_date()
     ui->instructions->setText("Displayed Sorted By Date Opened!");
 }
 
+//O(n^2)
 void MainWindow::display_sorted_by_stadium_names()
 {
     std::string output_Str;
@@ -562,6 +576,7 @@ void MainWindow::display_sorted_by_stadium_names()
     ui->instructions->setText("Displayed Sorted By Stadium Names!");
 }
 
+//O(n^2)
 void MainWindow::display_sorted_by_team_names()
 {
     std::string output_Str;
@@ -595,6 +610,7 @@ void MainWindow::display_sorted_by_team_names()
     ui->instructions->setText("Displayed Sorted By Team Names!");
 }
 
+//O(n^3)
 void MainWindow::display_sorted_by_team_names_american()
 {
     std::string output_Str;
@@ -638,6 +654,7 @@ void MainWindow::display_sorted_by_team_names_american()
     ui->instructions->setText("Displayed Sorted By American Team Names!");
 }
 
+//O(n^3)
 void MainWindow::display_sorted_by_team_names_national()
 {
     std::string output_Str;
@@ -681,6 +698,7 @@ void MainWindow::display_sorted_by_team_names_national()
     ui->instructions->setText("Displayed Sorted By National Team Names!");
 }
 
+//O(n^4)
 void MainWindow::display_sorted_by_grass_surface_and_team_names()
 {
     std::string output_Str;
@@ -755,45 +773,14 @@ void MainWindow::display_sorted_by_grass_surface_and_team_names()
     ui->instructions->setText("Displayed Sorted By Grass Surface And Team Names!");
 }
 
-void MainWindow::btn_change_stadium_info()
-{
-    if (isAdmin){
-        std::string output_Str;
-        state_admin = "CHANGE_STADIUM";
-        output_Str += "Input: (stadium/....\n";
-        output_Str += "     new_stadium_name/new_team_name/new_street_address\n";
-        output_Str += "     new_city_state_zip/new_box_office_number/new_date_opened\n";
-        output_Str += "     new_seating_capacity/new_american_league/new_grass)\n\n";
-        output_Str += "For American League and Grass, input (y/n)";
-
-        ui->instructions_Admin->setText("View Above For Instructions:");
-        ui->displayBox->setText(QString::fromStdString(output_Str));
-    }
-}
-
-bool MainWindow::change_stadium_property(std::string input_str)
-{
-std::cout << "not implemented change stadium property" << std::endl;
-}
-
-//void MainWindow::btn_Display_All_Stadiums_Handler()
-//{
-//    std::string output_Str;
-//    ILB::Stadium *temp = graph->get_vert();
-//    for (int i = 0; i < graph->get_vcount(); i++){
-//        output_Str += temp[i].display_stadium_info();
-//        output_Str += "\n";
-//    }
-//    ui->displayBox->setText(QString::fromStdString(output_Str));
-//    ui->instructions->setText("Displayed!");
-//}
-
+//O(1)
 void MainWindow::btn_display_distance_between_handler()
 {
     state = "DISTANCE";
     ui->instructions->setText("Distance (stadium1/stadium2):");
 }
 
+//O(n^3)
 bool MainWindow::display_distance_between(std::string input_str)
 {
     bool valid = true;
@@ -831,12 +818,14 @@ bool MainWindow::display_distance_between(std::string input_str)
     return valid;
 }
 
+//O(1)
 void MainWindow::btn_display_custom_trip_handler()
 {
     state = "CUSTOM_TRIP";
     ui->instructions->setText("Custom Trip: (stadium1/stadium2/stadium3/...)");
 }
 
+//O(n^2)
 bool MainWindow::display_distance_between_custom_trip(std::string input_str)
 {
     bool valid = true;
@@ -875,9 +864,181 @@ bool MainWindow::display_distance_between_custom_trip(std::string input_str)
         int* temp = graph->planned_path(stadium_collection, stadium_collection_sz);
         int distance = temp[0];
         int visited = temp[1];
+        output_Str += "Custom Trip Info:\n";
         output_Str += "Distance: "; output_Str += std::to_string(distance); output_Str += "\n";
         output_Str += "Total Locations Visited: "; output_Str += std::to_string(visited); output_Str += "\n";
         ui->displayBox->setText(QString::fromStdString(output_Str));
     }
     return valid;
+}
+
+//O(n)
+void MainWindow::change_stadium_property()
+{
+    if (isAdmin){
+
+    bool valid = true;
+    int i = 0;
+
+    string selected_stadium = ui->inputBox_Admin_1->text().toStdString();
+    string stadium_name = ui->inputBox_Admin_2->text().toStdString();
+    string team_name = ui->inputBox_Admin_3->text().toStdString();
+    string street_address = ui->inputBox_Admin_4->text().toStdString();
+    string city_state_zip = ui->inputBox_Admin_5->text().toStdString();
+    string box_office_number = ui->inputBox_Admin_6->text().toStdString();
+    string date_opened = ui->inputBox_Admin_7->text().toStdString();
+    string seating_capacity_str = ui->inputBox_Admin_8->text().toStdString();
+    string american_league_str = ui->inputBox_Admin_9->text().toStdString();
+    string grass_str = ui->inputBox_Admin_10->text().toStdString();
+
+    int seating_capacity;
+    bool american_league;
+    bool grass;
+
+    while (seating_capacity_str[i] != NULL){
+        if ( (seating_capacity_str[i] > 47) && (seating_capacity_str[i] < 58) ){
+            //valid
+        }else{
+            valid = false;
+        }
+        i++;
+    }
+
+    if (stadium_name.empty() || team_name.empty() || street_address.empty()
+            || city_state_zip.empty() || box_office_number.empty() || date_opened.empty()
+            || seating_capacity_str.empty() || american_league_str.empty() || grass_str.empty()){
+        valid = false;
+    }
+    if (valid){
+        if (graph->vertice_exists(selected_stadium)){
+            seating_capacity = stoi(seating_capacity_str);
+            if (american_league_str[0] == 'y'){
+                american_league = true;
+            }else{
+                american_league = false;
+            }
+
+            if (grass_str[0] == 'y'){
+                grass = true;
+            }else{
+                grass = false;
+            }
+
+            graph->get_stadium_admin(selected_stadium).set_team_name(team_name);
+            graph->get_stadium_admin(selected_stadium).set_street_address(street_address);
+            graph->get_stadium_admin(selected_stadium).set_city_state_zip(city_state_zip);
+            graph->get_stadium_admin(selected_stadium).set_box_office_number(box_office_number);
+            graph->get_stadium_admin(selected_stadium).set_date_opened(date_opened);
+            graph->get_stadium_admin(selected_stadium).set_seating_capacity(seating_capacity);
+            graph->get_stadium_admin(selected_stadium).set_american_league(american_league);
+            graph->get_stadium_admin(selected_stadium).set_grass(grass);
+            graph->get_stadium_admin(selected_stadium).set_stadium_name(stadium_name);
+            ui->instructions_Admin_Special->setText("Changed Stadium Info!");
+        }else{
+            valid = false;
+        }
+    }else{
+        ui->instructions_Admin_Special->setText("Failed to Change Stadium Info!");
+    }
+
+    }
+}
+
+//O(n^2)
+void MainWindow::add_stadium()
+{
+    if (isAdmin){
+
+    bool valid = true;
+    int i = 0;
+    string stadium_name = ui->inputBox_Admin_2->text().toStdString();
+    string team_name = ui->inputBox_Admin_3->text().toStdString();
+    string street_address = ui->inputBox_Admin_4->text().toStdString();
+    string city_state_zip = ui->inputBox_Admin_5->text().toStdString();
+    string box_office_number = ui->inputBox_Admin_6->text().toStdString();
+    string date_opened = ui->inputBox_Admin_7->text().toStdString();
+    string seating_capacity_str = ui->inputBox_Admin_8->text().toStdString();
+    string american_league_str = ui->inputBox_Admin_9->text().toStdString();
+    string grass_str = ui->inputBox_Admin_10->text().toStdString();
+
+    int seating_capacity;
+    bool american_league;
+    bool grass;
+
+    while (seating_capacity_str[i] != NULL){
+        if ( (seating_capacity_str[i] > 47) && (seating_capacity_str[i] < 58) ){
+            //valid
+        }else{
+            valid = false;
+        }
+        i++;
+    }
+
+    if (stadium_name.empty() || team_name.empty() || street_address.empty()
+            || city_state_zip.empty() || box_office_number.empty() || date_opened.empty()
+            || seating_capacity_str.empty() || american_league_str.empty() || grass_str.empty()){
+        valid = false;
+    }
+    if (valid){
+            seating_capacity = stoi(seating_capacity_str);
+            if (american_league_str[0] == 'y'){
+                american_league = true;
+            }else{
+                american_league = false;
+            }
+
+            if (grass_str[0] == 'y'){
+                grass = true;
+            }else{
+                grass = false;
+            }
+
+            ILB::Stadium new_stadium(stadium_name, team_name, street_address, city_state_zip, box_office_number, date_opened, seating_capacity, american_league, grass);
+            graph->addVertex(new_stadium);
+
+            ui->instructions_Admin_Special->setText("Added Stadium Info!");
+    }else{
+        ui->instructions_Admin_Special->setText("Failed to Add Stadium Info!");
+    }
+
+    }
+}
+
+//O(1)
+void MainWindow::btn_TRIP_major_league_shortest()
+{
+    std::string output_Str;
+
+    int distance = graph->shortest_ham_path(0);
+    int visited = 1337;
+    output_Str += "Major League Trip Info:\n";
+    output_Str += "Distance: "; output_Str += std::to_string(distance); output_Str += "\n";
+    output_Str += "Total Locations Visited: "; output_Str += std::to_string(visited); output_Str += "\n";
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+}
+
+//O(1)
+void MainWindow::btn_TRIP_american_league_shortest()
+{
+    std::string output_Str;
+
+    int distance = graph->shortest_ham_path(1);
+    int visited = 1337;
+    output_Str += "American League Trip Info:\n";
+    output_Str += "Distance: "; output_Str += std::to_string(distance); output_Str += "\n";
+    output_Str += "Total Locations Visited: "; output_Str += std::to_string(visited); output_Str += "\n";
+    ui->displayBox->setText(QString::fromStdString(output_Str));
+}
+
+//O(1)
+void MainWindow::btn_TRIP_national_league_shortest()
+{
+    std::string output_Str;
+
+    int distance = graph->shortest_ham_path(2);
+    int visited = 1337;
+    output_Str += "National League Trip Info:\n";
+    output_Str += "Distance: "; output_Str += std::to_string(distance); output_Str += "\n";
+    output_Str += "Total Locations Visited: "; output_Str += std::to_string(visited); output_Str += "\n";
+    ui->displayBox->setText(QString::fromStdString(output_Str));
 }

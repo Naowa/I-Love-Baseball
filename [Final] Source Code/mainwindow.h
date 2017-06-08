@@ -27,55 +27,59 @@ public:
     std::string get_Str_Input_Admin();              //same as above, but for admin input
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui;                             //ui - ui for the gui interface
 
     std::string state;                              //state - determines the state for btn_confirm_handler()
     std::string state_admin;                        //state_admin - determines the state for btn_confirm_admin_handler()
-    bool isAdmin;
-    std::string adminPass;
+    bool isAdmin;                                   //isAdmin - determines if user is admin
+    std::string adminPass;                          //adminPass - stores password for admin
 
-    User customer;
-    Baseball_Graph *graph;
+    User customer;                                  //customer - stores customer class (user), keeps track of purchases
+    Baseball_Graph *graph;                          //graph - stores the graph with stadiums
 
     ///**PRIVATE FUNCTIONS
-    bool valid_string(std::string &val, std::string input_str, int &i);
-    std::string to_lexicographical_order(std::string date);
+    bool valid_string(std::string &val, std::string input_str, int &i);     //valid_string - determines if a string is valid and updates its contents
+    std::string to_lexicographical_order(std::string date);                 //to_lexicographical_order - converts a string date to lexicographical
 
     ///**ADMINISTRATOR FUNCTIONS
-    bool add_souvenir(std::string input_str);
-    bool del_souvenir(std::string input_str);
-    bool change_souvenir_name(std::string input_str);
-    bool change_souvenir_price(std::string input_str);
-    bool change_stadium_property(std::string input_str);
+    bool add_souvenir(std::string input_str);                               //add_souvenir - adds a souvenir to a stadium
+    bool del_souvenir(std::string input_str);                               //del_souvenir - deletes a souvenir
+    bool change_souvenir_name(std::string input_str);                       //change_souvenir_name - changes a souvenir's name
+    bool change_souvenir_price(std::string input_str);                      //change_souvenir_price - changes a souvenir's price
 
     ///***USER FUNCTIONS
-    bool display_stadium(std::string input_str);            //display - takes in a string parameter and displays it to the GUI
-    bool buy_souvenir(std::string input_str);
-    bool display_distance_between(std::string input_str);
-    bool display_distance_between_custom_trip(std::string input_str);
+    bool display_stadium(std::string input_str);                            //display_stadium - displays a stadium to the gui
+    bool buy_souvenir(std::string input_str);                               //buy_souvenir - allows purchase of souvenir
+    bool display_distance_between(std::string input_str);                   //display_distance_between - displays distance between stadiums
+    bool display_distance_between_custom_trip(std::string input_str);       //display_distance_between_custom_trip - displays distance between custom trips generated
 
+    ///***Initialize Stadium Count
 
 private slots:
     //Button Slot Functions
-    void btn_confirm_handler();                     //confirms ALL user input
-    void btn_confirm_admin_handler();
-    void btn_Add_Souvenir_Handler();
-    void btn_Del_Souvenir_Handler();
-    void btn_Change_Souvenir_Name_Handler();
-    void btn_Change_Souvenir_Price_Handler();
-    void btn_Display_Stadium_Handler();
-    void btn_Buy_Souvenir_Handler();
-    void btn_Display_Purchases_Handler();
-    void btn_Display_All_Stadiums_Handler();
-    void display_sorted_by_date();
-    void display_sorted_by_stadium_names();
-    void display_sorted_by_team_names();
-    void display_sorted_by_team_names_american();
-    void display_sorted_by_team_names_national();
-    void display_sorted_by_grass_surface_and_team_names();
-    void btn_change_stadium_info();
-    void btn_display_distance_between_handler();
-    void btn_display_custom_trip_handler();
+    void btn_confirm_handler();                     //btn_confirm_handler - confirms user input
+    void btn_confirm_admin_handler();               //btn_confirm_admin_handler - confirms admin input
+    void btn_Add_Souvenir_Handler();                //btn_Add_Souvenir_Handler - handles button for adding souvenirs
+    void btn_Del_Souvenir_Handler();                //btn_Del_Souvenir_Handler - handles deletion of souvenirs
+    void btn_Change_Souvenir_Name_Handler();        //btn_Change_Souvenir_Name_Handler - handles button to change a souvenir's name
+    void btn_Change_Souvenir_Price_Handler();       //btn_Change_Souvenir_Price_Handler - handles button to change a souvenir's price
+    void btn_Display_Stadium_Handler();             //btn_Display_Stadium_Handler - handles displaying a stadium
+    void btn_Buy_Souvenir_Handler();                //btn_Buy_Souvenir_Handler - handles buying souvenirs
+    void btn_Display_Purchases_Handler();           //btn_Display_Purchases_Handler - handles displaying purchases
+    void btn_Display_All_Stadiums_Handler();        //btn_Display_All_Stadiums_Handler - handles displaying all stadiums
+    void display_sorted_by_date();                  //display_sorted_by_date - handles displaying stadiums by sorted date
+    void display_sorted_by_stadium_names();         //display_sorted_by_stadium_names - handles displaying sorted by stadium names
+    void display_sorted_by_team_names();            //display_sorted_by_team_names - handles displaying sorted by team names
+    void display_sorted_by_team_names_american();   //display_sorted_by_team_names_american - handles displaying sorted by american team names
+    void display_sorted_by_team_names_national();   //display_sorted_by_team_names_national - handles displaying sorted by national team names
+    void display_sorted_by_grass_surface_and_team_names();      //display_sorted_by_grass_surface_and_team_names - handles displaying sorted by grass surface and team names
+    void btn_display_distance_between_handler();    //btn_display_distance_between_handler - handles displaying distance between stadiums
+    void btn_display_custom_trip_handler();         //btn_display_custom_trip_handler - handles custom trip displaying
+    void change_stadium_property();                 //change_stadium_property - handles changing stadium properties
+void add_stadium();                                 //add_stadium - adds stadium to graph
+void btn_TRIP_major_league_shortest();              //btn_TRIP_major_league_shortest - displays shortest pathing for mlb stadiums
+void btn_TRIP_american_league_shortest();           //btn_TRIP_american_league_shortest - displays shortest pathing for american league stadiums
+void btn_TRIP_national_league_shortest();           //btn_TRIP_national_league_shortest - displays shortest pathing for nationa league stadiums
 };
 
 //Baseball_Graph gw(50);

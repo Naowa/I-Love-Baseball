@@ -8,6 +8,7 @@ using std::vector;
 using std::cout;
 using std::endl;
 
+//O(1)
 void User::buy(string item_name, string stadium_name, double price) {
     Souvenir purchase;
     purchase.item_name = item_name;
@@ -16,10 +17,12 @@ void User::buy(string item_name, string stadium_name, double price) {
     this->purchases.push_back(purchase);
 }
 
+//O(1)
 vector<ILB::Souvenir> User::get_purchases() {
     return this->purchases;
 }
 
+//O(n)
 Souvenir User::get_souvenir(string item_name) {
     try {
         for (Souvenir item : purchases) {
@@ -34,15 +37,18 @@ Souvenir User::get_souvenir(string item_name) {
     }
 }
 
+//O(1)
 Souvenir User::operator [](string item_name) {
     return this->get_souvenir(item_name);
 }
 
+//O(1)
 Souvenir User::operator[](int index) {
     assert(index < this->purchases.size());
     return this->purchases[index];
 }
 
+//O(n)
 std::string User::display_purchases()
 {
     string output_Str;

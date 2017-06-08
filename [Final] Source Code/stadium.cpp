@@ -7,6 +7,7 @@ using std::to_string;
 using std::cout;
 using std::endl;
 
+//O(1)
 ILB::Stadium::Stadium() : Vertex(){
     stadium_name = "NO STADIUM NAME";
     team_name = "NO TEAM NAME";
@@ -21,6 +22,7 @@ ILB::Stadium::Stadium() : Vertex(){
 
 }
 
+//O(1)
 ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name){
     stadium_name = input_stadium_name;
     team_name = "NO TEAM NAME";
@@ -35,6 +37,7 @@ ILB::Stadium::Stadium(string input_stadium_name) : Vertex(input_stadium_name){
     name=stadium_name;
 }
 
+//O(1)
 ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string input_street_address,
         string input_city_state_zip, string input_box_office_number, string input_date_opened,
         int input_seating_capacity, bool input_american_league, bool input_grass) : Vertex(input_stadium_name){
@@ -51,6 +54,7 @@ ILB::Stadium::Stadium(string input_stadium_name, string input_team_name, string 
     name=stadium_name;
 }
 
+//O(1)
 void ILB::Stadium::initialize_souvenirs() {
     Souvenir initial_item1;
     Souvenir initial_item2;
@@ -80,6 +84,7 @@ void ILB::Stadium::initialize_souvenirs() {
 
 }
 
+//O(1)
 ILB::Souvenir ILB::Stadium::operator[] (int index)
 {
     //check out of bounds
@@ -87,10 +92,12 @@ ILB::Souvenir ILB::Stadium::operator[] (int index)
     return souvenirs[index];
 }
 
+//O(1)
 ILB::Souvenir ILB::Stadium::operator[] (string name) {
     return this->get_souvenir(name);
 }
 
+//O(n)
 ILB::Souvenir ILB::Stadium::get_souvenir(string name) {
     try {
         for (Souvenir item : souvenirs) {
@@ -105,6 +112,7 @@ ILB::Souvenir ILB::Stadium::get_souvenir(string name) {
     }
 }
 
+//O(1)
 string ILB::Stadium::display_stadium_info()
 {
     string output_Str;
@@ -120,6 +128,7 @@ string ILB::Stadium::display_stadium_info()
     return output_Str;
 }
 
+//O(1)
 void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
 {
     Souvenir new_souvenir;
@@ -130,6 +139,7 @@ void ILB::Stadium::add_souvenir(string input_item_name, double input_item_price)
     souvenirs.push_back(new_souvenir);
 }
 
+//O(n)
 bool ILB::Stadium::remove_souvenir(string target_item_name)
 {
     for (int i = 0; i < souvenirs.size(); i++){
@@ -141,6 +151,7 @@ bool ILB::Stadium::remove_souvenir(string target_item_name)
     return false;
 }
 
+//O(n)
 string ILB::Stadium::display_souvenirs()
 {
     string output_Str;
@@ -156,6 +167,7 @@ string ILB::Stadium::display_souvenirs()
     return output_Str;
 }
 
+//O(n)
 bool ILB::Stadium::change_souvenir_name(string name, string new_name) {
     for (int i = 0; i < souvenirs.size(); i++){
         if (souvenirs[i].item_name == name){
@@ -166,6 +178,7 @@ bool ILB::Stadium::change_souvenir_name(string name, string new_name) {
     return false;
 }
 
+//O(n)
 bool ILB::Stadium::change_souvenir_price(string name, double price) {
     for (int i = 0; i < souvenirs.size(); i++){
         if (souvenirs[i].item_name == name){
@@ -176,6 +189,7 @@ bool ILB::Stadium::change_souvenir_price(string name, double price) {
     return false;
 }
 
+//O(1)
 ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
      stadium_name=B.stadium_name;
      team_name=B.team_name;
@@ -192,13 +206,17 @@ ILB::Stadium& ILB::Stadium::operator=(const Stadium& B){
 
 }
 
+//O(1)
 bool ILB::Stadium::operator ==(ILB::Stadium& B){
     return(this->stadium_name==B.stadium_name);
 }
+
+//O(1)
 bool ILB::Stadium::operator ==(std::string B){
     return(this->stadium_name==B);
 }
 
+//O(n)
 bool ILB::Stadium::find_souvenir(std::string target_item_name)
 {
     for (int i = 0; i < souvenirs.size(); i++){

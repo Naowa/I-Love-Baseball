@@ -268,3 +268,70 @@ bool Baseball_Graph::vertice_exists(ILB::Stadium src){
 
     return false;
 }
+
+int Baseball_Graph::shortest_ham_path(int path){
+   int p[active_v];
+   int key[active_v];
+   bool set[active_v];
+
+   for(int i=0; i<active_v; i++)
+       p[i]=0,key[i]=INT_MAX, set[i]=false;
+
+   key[0]=0;
+   p[0]=-1;
+if(path==2){
+   for(int i=0; i<active_v-1; i++){
+       int min=INT_MAX,min_i=0;
+
+       for(int j=0; j<active_v; j++)
+           if(set[j]==false && key[j]<min)
+               min=key[j],min_i=j;
+       int k=min_i;
+       set[k]=true;
+
+       for(int l=0; l<active_v; l++){
+           if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0 && !array[l]->vert.if_american_league())
+               p[l]=k,key[l]=array[k]->weights[l];
+       }
+   }
+}
+else if(path==1){
+    for(int i=0; i<active_v-1; i++){
+        int min=INT_MAX,min_i=0;
+
+        for(int j=0; j<active_v; j++)
+            if(set[j]==false && key[j]<min)
+                min=key[j],min_i=j;
+        int k=min_i;
+        set[k]=true;
+
+        for(int l=0; l<active_v; l++){
+            if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0 && array[l]->vert.if_american_league())
+                p[l]=k,key[l]=array[k]->weights[l];
+        }
+    }
+ }
+else if(path==0){
+    for(int i=0; i<active_v-1; i++){
+        int min=INT_MAX,min_i=0;
+
+        for(int j=0; j<active_v; j++)
+            if(set[j]==false && key[j]<min)
+                min=key[j],min_i=j;
+        int k=min_i;
+        set[k]=true;
+
+        for(int l=0; l<active_v; l++){
+            if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0)
+                p[l]=k,key[l]=array[k]->weights[l];
+        }
+    }
+ }
+
+   int sum=0;
+   for(int i=1; i<active_v-1; i++){
+       sum+=array[i]->weights[p[i]];
+   }
+
+   return sum;
+}
