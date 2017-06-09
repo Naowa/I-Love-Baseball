@@ -486,7 +486,7 @@ else if(path==0){
         set[k]=true;
 
         for(int l=0; l<active_v; l++){
-            if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0)
+            if(array[k]->weights[l]&& set[l] == false && array[k]->weights[l] <key[l] && array[k]->weights[l] >=0)
                 p[l]=k,key[l]=array[k]->weights[l];
         }
     }
@@ -494,7 +494,9 @@ else if(path==0){
 
    int sum=0;
    for(int i=1; i<active_v; i++){
+       if(array[i]->weights[p[i]]>=0){
        sum+=array[i]->weights[p[i]];
+       }
    }
 
    return sum;
