@@ -434,73 +434,179 @@ bool Baseball_Graph::vertice_exists(ILB::Stadium src){
 
 //O(2^n)
 int Baseball_Graph::shortest_ham_path(int path){
-   int p[active_v];
-   int key[active_v];
-   bool set[active_v];
+//   int p[active_v];
+//   int key[active_v];
+//   bool set[active_v];
 
-   for(int i=0; i<active_v; i++)
-       p[i]=0,key[i]=INT_MAX, set[i]=false;
+//   for(int i=0; i<active_v; i++)
+//       p[i]=0,key[i]=INT_MAX, set[i]=false;
 
-   key[0]=0;
-   p[0]=-1;
-if(path==2){
-   for(int i=0; i<active_v-1; i++){
-       int min=INT_MAX,min_i=0;
+//   key[0]=0;
+//   p[0]=-1;
+//if(path==2){
+//   for(int i=0; i<active_v-1; i++){
+//       int min=INT_MAX,min_i=0;
 
-       for(int j=0; j<active_v; j++)
-           if(set[j]==false && key[j]<min && array[j]->vert.if_national_leauge())
-               min=key[j],min_i=j;
-       int k=min_i;
-       set[k]=true;
+//       for(int j=0; j<active_v; j++)
+//           if(set[j]==false && key[j]<min && array[j]->vert.if_national_leauge())
+//               min=key[j],min_i=j;
+//       int k=min_i;
+//       set[k]=true;
 
-       for(int l=0; l<active_v; l++){
-           if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0 && !array[l]->vert.if_american_league())
-               p[l]=k,key[l]=array[l]->weights[k];
-       }
-   }
+//       for(int l=0; l<active_v; l++){
+//           if(array[l]->weights[k]&& set[k] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0 && !array[l]->vert.if_american_league())
+//               p[l]=k,key[l]=array[l]->weights[k];
+//       }
+//   }
+//   int sum=0;
+//   for(int i=1; i<15; i++){
+//       if(array[i]->weights[p[i]]>=0){
+//       sum+=array[i]->weights[p[i]];
+//       }
+//   }
+
+//   return sum;
+//}
+//else if(path==1){
+//    for(int i=0; i<active_v-1; i++){
+//        int min=INT_MAX,min_i=0;
+
+//        for(int j=0; j<active_v; j++)
+//            if(set[j]==false && key[j]<min && array[j]->vert.if_american_league())
+//                min=key[j],min_i=j;
+//        int k=min_i;
+//        set[k]=true;
+
+//        for(int l=0; l<active_v; l++){
+//            if(array[k]->weights[l]&& set[k] == false && array[k]->weights[l] <key[l] && array[k]->weights[l] >=0 && array[l]->vert.if_american_league())
+//                p[l]=k,key[l]=array[k]->weights[l];
+//        }
+//    }
+//    int sum=0;
+//    for(int i=1; i<15; i++){
+//        if(array[i]->weights[p[i]]>=0){
+//        sum+=array[i]->weights[p[i]];
+//        }
+//    }
+
+//    return sum;
+// }
+//else if(path==0){
+//    for(int i=0; i<active_v-1; i++){
+//        int min=INT_MAX,min_i=0;
+
+//        for(int j=0; j<active_v; j++)
+//            if(set[j]==false && key[j]<min)
+//                min=key[j],min_i=j;
+//        int k=min_i;
+//        set[k]=true;
+
+//        for(int l=0; l<active_v; l++){
+//            if(array[l]->weights[k]&& set[k] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0)
+//                p[l]=k,key[l]=array[l]->weights[k];
+//        }
+//    }
+// }
+
+//   int sum=0;
+//   for(int i=1; i<active_v; i++){
+//       if(array[i]->weights[p[i]]>=0){
+//       sum+=array[i]->weights[p[i]];
+//       }
+//   }
+
+//   return sum;
+    int temp2[15];
+    int* temp=temp2;
+    for(int i=0; i<active_v; i++){
+        if(array[i]->vert.if_american_league()){
+            *temp=i;
+            temp++;
+        }
+    }
+    int n=0;
+    int sum=0;
+    if(path==0)
+         n=active_v;
+    else
+         n=active_v;
+
+    int key[n];
+        bool in_mst[n];
+        int parent[n];
+
+
+        for (int v = 0; v < n; v++) {
+
+            key[v] = INT_MAX;
+
+
+            in_mst[v] = false;
+        }
+
+        key[0] = 0;
+        parent[0] = -1;
+
+        for (int i = 0; i < n - 1; i++) {
+
+            int v;
+
+                int min = INT_MAX;
+                int min_index;
+                for (v = 0; v < n; v++)
+                    if (in_mst[v] == false && key[v] < min) {
+                        min = key[v];
+                        min_index = v;
+                    }
+                v= min_index;
+
+
+
+            in_mst[v] = true;
+
+if(path==0){
+            for (int u = 0; u < n; u++) {
+                if (array[v]->weights[u] && in_mst[u] == false && array[v]->weights[u] < key[u] && array[v]->weights[u]>=0) {
+
+                    parent[u] = v;
+
+                    key[u] = array[v]->weights[u];
+                }
+            }
 }
 else if(path==1){
-    for(int i=0; i<active_v-1; i++){
-        int min=INT_MAX,min_i=0;
+            for (int u = 0; u < n; u++) {
+                if (array[v]->weights[u] && in_mst[u] == false && array[v]->weights[u] < key[u] && array[v]->weights[u]>=0 && array[u]->vert.if_american_league()) {
 
-        for(int j=0; j<active_v; j++)
-            if(set[j]==false && key[j]<min && array[j]->vert.if_american_league())
-                min=key[j],min_i=j;
-        int k=min_i;
-        set[k]=true;
+                    parent[u] = v;
 
-        for(int l=0; l<active_v; l++){
-            if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0 && array[l]->vert.if_american_league())
-                p[l]=k,key[l]=array[l]->weights[k];
-        }
-    }
- }
-else if(path==0){
-    for(int i=0; i<active_v-1; i++){
-        int min=INT_MAX,min_i=0;
-
-        for(int j=0; j<active_v; j++)
-            if(set[j]==false && key[j]<min)
-                min=key[j],min_i=j;
-        int k=min_i;
-        set[k]=true;
-
-        for(int l=0; l<active_v; l++){
-            if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0)
-                p[l]=k,key[l]=array[l]->weights[k];
-        }
-    }
- }
-
-   int sum=0;
-   for(int i=0; i<15; i++){
-       if(array[i]->weights[p[i]]>=0){
-       sum+=array[i]->weights[p[i]];
-       }
-   }
-
-   return sum;
+                    key[u] = array[v]->weights[u];
+                }
+            }
 }
+else if(path==2){
+    for (int u = 0; u < n; u++) {
+        if (array[v]->weights[u] && in_mst[u] == false && array[v]->weights[u] < key[u] && array[v]->weights[u]>=0 && !array[u]->vert.if_american_league()) {
+
+            parent[u] = v;
+
+            key[u] = array[v]->weights[u];
+        }
+    }
+}
+
+
+
+}
+
+for(int i=0; i<active_v; i++){
+    if(key[i]>=0 && key[i]<3000){
+        sum=key[i]+sum;
+    }
+}
+return sum;
+}
+
 /**********************************************************
  *
  * get_american_count
@@ -542,3 +648,8 @@ int Baseball_Graph::get_national_count(){
 
     return count;
 }
+
+//void Baseball_Graph::addEdge(std::string src, ILB::Stadium dest, int dist){
+//    ILB::Stadium temp(src);
+//    this->Graph::addEdge(temp,dest,dist);
+//}

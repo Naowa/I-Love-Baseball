@@ -23,6 +23,8 @@ public:
     int shortest_ham_path(int); //returns distance of shortest hamitonian path
     int get_american_count(); //returns number of american stadiums
     int get_national_count(); //returns number of national stadiums
+//    void addEdge(std::string src, ILB::Stadium dest, int dist);
+
 
 
 
