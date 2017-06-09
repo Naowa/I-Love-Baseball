@@ -4,18 +4,47 @@
 #include "iostream"
 #include "fstream"
 #include "cstdlib"
+/**********************************************************
+ *
+ * Baseball_Graph()
+ *_________________________________________________________
+ * Constructor
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ *
+ *
+ *
+ **********************************************************/
 
+//O(n)
 Baseball_Graph::Baseball_Graph():Graph(){}
+/**********************************************************
+ *
+ * See Graph(int)
+ *_________________________________________________________
+ * Constructor
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ *
+ *
+ *
+ **********************************************************/
+
+//O(n)
 Baseball_Graph::Baseball_Graph(int n):Graph(n){}
+/**********************************************************
+ *
+ * initialize_from_file
+ *_________________________________________________________
+ * initialize graph with file
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * a valid filename to a file that is formatted according
+ * to pdf from canvas
+ *
+ **********************************************************/
 
-void Baseball_Graph::show(){
-    for(int i=0; i<active_v; i++){
-        for(int j=0; j<active_v; j++)
-             std::cout<< "From vert: " << array[i]->vert << " to vert: " << array[j]->vert << " is weight " << array[i]->weights[j] << std::endl;
-    }
-
-
-}
+//O(n)
 bool Baseball_Graph::initialize_from_file(std::string file_name, int type=0){ //0=initialize edge values, 1=initialize stadiums(american), 2=initialize stadiums(national)
        std::ifstream file;
        file.open(file_name.c_str());
@@ -171,12 +200,36 @@ else if(type==1){
 }
 
 
+/**********************************************************
+ *
+ * update_stadium
+ *_________________________________________________________
+ * updates existing stadium with the same name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * a valid stadium
+ *
+ *
+ **********************************************************/
 
+//O(1)
 void Baseball_Graph::update_stadium(ILB::Stadium B){
     if(this->vertice_exists(B))
         this->array[this->find_index(B)]->vert=B;
 }
+/**********************************************************
+ *
+ * get_stadium_admin
+ *_________________________________________________________
+ * returns the address of a stadium in the graph
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * A valid string must be entered
+ *
+ *
+ **********************************************************/
 
+//O(n)
 ILB::Stadium& Baseball_Graph::get_stadium_admin(std::string name){
     for(int i=0; i<active_v; i++){
     if(this->array[i]->vert.get_name()==name)
@@ -184,7 +237,19 @@ ILB::Stadium& Baseball_Graph::get_stadium_admin(std::string name){
     }
 
 }
+/**********************************************************
+ *
+ * get_stadium
+ *_________________________________________________________
+ * returns a copy of a stadium in the graph
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * A valid string must be entered
+ *
+ *
+ **********************************************************/
 
+//O(n)
 ILB::Stadium& Baseball_Graph::get_stadium(std::string name){
     for(int i=0; i<active_v; i++){
     if(this->array[i]->vert.get_name()==name)
@@ -192,7 +257,19 @@ ILB::Stadium& Baseball_Graph::get_stadium(std::string name){
     }
 
 }
+/**********************************************************
+ *
+ * shortest_path
+ *_________________________________________________________
+ * returns distance and numbers of stadiums visited
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * 2 unique and valid stadiums
+ *
+ *
+ **********************************************************/
 
+//O(1)
 int* Baseball_Graph::shortest_path(ILB::Stadium A, ILB::Stadium B){
     void** temp=this->dijkstra(A);
     int* distances=(int*)temp[0];
@@ -203,7 +280,19 @@ int* Baseball_Graph::shortest_path(ILB::Stadium A, ILB::Stadium B){
 
     return info;
 }
+/**********************************************************
+ *
+ * shortest_path
+ *_________________________________________________________
+ * returns distance and numbers of stadiums visited
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * 2 unique and valid stadium names
+ *
+ *
+ **********************************************************/
 
+//O(1)
 int* Baseball_Graph::shortest_path(std::string a, std::string b){
     ILB::Stadium A(a);
     ILB::Stadium B(b);
@@ -217,7 +306,19 @@ int* Baseball_Graph::shortest_path(std::string a, std::string b){
     return info;
 }
 
+/**********************************************************
+ *
+ * planned path
+ *_________________________________________________________
+ * returns distance and stadiums visited for an array of valid stadiums
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * an array of valid and existing stadiums
+ *
+ *
+ **********************************************************/
 
+//O(n)
 int* Baseball_Graph::planned_path(std::string* planned_stadiums, int planned_visits){
    int* info= new int[2];
    info[0]=0;
@@ -233,7 +334,19 @@ int* Baseball_Graph::planned_path(std::string* planned_stadiums, int planned_vis
    return info;
 
 }
+/**********************************************************
+ *
+ * find_index
+ *_________________________________________________________
+ * returns index of stadium by name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * valid stadium name
+ *
+ *
+ **********************************************************/
 
+//O(n)
 int Baseball_Graph::find_index(std::string src){
 
     for(int i=0; i<active_v; i++){
@@ -242,6 +355,19 @@ int Baseball_Graph::find_index(std::string src){
   }
     return -1;
 }
+/**********************************************************
+ *
+ * vertice_exists
+ *_________________________________________________________
+ * returns if a vertex exists by name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * a string containing the name of a vertex
+ *
+ *
+ **********************************************************/
+
+//O(n)
 bool Baseball_Graph::vertice_exists(std::string src){
     for(int i=0; i<active_v; i++){
         if(src==array[i]->vert.get_stadium_name()){
@@ -251,6 +377,19 @@ bool Baseball_Graph::vertice_exists(std::string src){
 
     return false;
 }
+/**********************************************************
+ *
+ * find_index
+ *_________________________________________________________
+ * returns index of stadium by name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * valid stadium name
+ *
+ *
+ **********************************************************/
+
+//O(n)
 int Baseball_Graph::find_index(ILB::Stadium src){
 
     for(int i=0; i<active_v; i++){
@@ -259,6 +398,19 @@ int Baseball_Graph::find_index(ILB::Stadium src){
   }
     return -1;
 }
+/**********************************************************
+ *
+ * vertice_exists
+ *_________________________________________________________
+ * returns if a vertex exists by name
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * a string containing the name of a vertex
+ *
+ *
+ **********************************************************/
+
+//O(n)
 bool Baseball_Graph::vertice_exists(ILB::Stadium src){
     for(int i=0; i<active_v; i++){
         if(src.get_name()==array[i]->vert.get_name()){
@@ -268,7 +420,19 @@ bool Baseball_Graph::vertice_exists(ILB::Stadium src){
 
     return false;
 }
+/**********************************************************
+ *
+ * shortest_ham_path
+ *_________________________________________________________
+ * returns distance of the shortest hamitonian path
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * None
+ *
+ *
+ **********************************************************/
 
+//O(2^n)
 int Baseball_Graph::shortest_ham_path(int path){
    int p[active_v];
    int key[active_v];
@@ -335,7 +499,19 @@ else if(path==0){
 
    return sum;
 }
+/**********************************************************
+ *
+ * get_american_count
+ *_________________________________________________________
+ * returns number of american stadiums
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * None
+ *
+ *
+ **********************************************************/
 
+//O(n)
 int Baseball_Graph::get_american_count(){
     int count=0;
     for(int i=0; i<active_v; i++)
@@ -344,7 +520,18 @@ int Baseball_Graph::get_american_count(){
 
     return count;
 }
+/**********************************************************
+ *
+ * get_national_count
+ *_________________________________________________________
+ * returns number of national stadiums
+ *_________________________________________________________
+ * PRE-CONDITIONS
+ * None
+ *
+ **********************************************************/
 
+//O(n)
 int Baseball_Graph::get_national_count(){
     int count=0;
     for(int i=0; i<active_v; i++)

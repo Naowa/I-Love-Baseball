@@ -37,7 +37,19 @@ class Graph
 
 
     public:
+        /**********************************************************
+         *
+         * Graph()
+         *_________________________________________________________
+         * Constructor
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * None
+         *
+         *
+         **********************************************************/
 
+        //O(1)
         Graph(){
             this->vertices = 20;
             this->active_v=0;
@@ -45,6 +57,19 @@ class Graph
             for(int i=0; i<vertices; i++)
                 this->array[i]=NULL;
         }
+        /**********************************************************
+         *
+         * Graph(int)
+         *_________________________________________________________
+         * Constructor that initialize the Graph with int V number of arrays
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * None
+         *
+         *
+         **********************************************************/
+
+        //O(1)
         Graph(int V)
         {
             this->vertices = V;
@@ -54,13 +79,52 @@ class Graph
                 this->array[i]=NULL;
 
             }
+        /**********************************************************
+         *
+         * return_weight
+         *_________________________________________________________
+         * returns the weight of an edge
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * 2 valid and unique vertices
+         *
+         *
+         **********************************************************/
+
+        //O(1)
         w return_weight(v A,v B){
             if(vertice_exists(A)&&vertice_exists(B))
                 return(array[find_index(A)]->weights[find_index(B)]);
         }
+        /**********************************************************
+         *
+         * get_vcount
+         *_________________________________________________________
+         * returns number of active vertices
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         *
+         *
+         *
+         **********************************************************/
+
+        //O(1)
         int get_vcount()const{
             return active_v;
         }
+        /**********************************************************
+         *
+         * find_index
+         *_________________________________________________________
+         * returns index of vertex
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * A valid vertex
+         *
+         *
+         **********************************************************/
+
+        //O(n)
         virtual int find_index(v src){
 
             for(int i=0; i<active_v; i++){
@@ -69,6 +133,19 @@ class Graph
           }
             return -1;
         }
+        /**********************************************************
+         *
+         * vertice_exists(v)
+         *_________________________________________________________
+         * returns if a Vertex exists in the graph
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * any vertex
+         *
+         *
+         **********************************************************/
+
+        //O(n)
         virtual bool vertice_exists(v src){
             for(int i=0; i<active_v; i++){
                 if(src==array[i]->vert){
@@ -80,7 +157,19 @@ class Graph
         }
 
 
+        /**********************************************************
+         *
+         * addVertex(v src);
+         *_________________________________________________________
+         * adds a Vertex to the Graph
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * Any vertex
+         *
+         *
+         **********************************************************/
 
+        //O(1)
 
         void addVertex(v src){
             if(vertice_exists(src)){
@@ -92,7 +181,19 @@ class Graph
         }
 
 
+        /**********************************************************
+         *
+         * addEdge
+         *_________________________________________________________
+         * Adds an edge between 2 different vertices
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * at least 1 valid and existing vertex and 1 vertex
+         * a valid weight
+         *
+         **********************************************************/
 
+        //O(n)
         void addEdge(v src, v dest, w weight)
         {
 
@@ -128,17 +229,23 @@ class Graph
 
         }
 
-          void show(){
-             for(int i=0; i<active_v; i++){
-                 for(int j=0; j<active_v; j++)
-                     if(array[i]->weights[j] != -1)
-                   std::cout<< "From vert: " << array[i]->vert << " to vert: " << array[j]->vert << " is weight " << array[i]->weights[j] << std::endl;
-             }
-          }
 
 
 
 
+          /**********************************************************
+           *
+           * dijkstra
+           *_________________________________________________________
+           * find shortest path to every vertex from a source vertex
+           *_________________________________________________________
+           * PRE-CONDITIONS
+           * A valid vertex
+           *
+           *
+           **********************************************************/
+
+          //O(n^2)
         void** dijkstra(v src){
 
           w* dist=new w[active_v];
@@ -192,7 +299,19 @@ class Graph
                               //For Graph<int,Vertex>
 
      }
+        /**********************************************************
+         *
+         * get_vert()
+         *_________________________________________________________
+         * returns an array of all the vertex (copy)
+         *_________________________________________________________
+         * PRE-CONDITIONS
+         * None
+         *
+         *
+         **********************************************************/
 
+        //O(n)
 
        v* get_vert(){
 
@@ -203,7 +322,19 @@ class Graph
                      return temp;
 
         }
+       /**********************************************************
+        *
+        * Graph(Graph &B)
+        *_________________________________________________________
+        * Copy constructor
+        *_________________________________________________________
+        * PRE-CONDITIONS
+        * Another graph
+        *
+        *
+        **********************************************************/
 
+       //O(n^2)
        Graph(Graph& B){
            this->vertices = B.vertices*2;
            this->active_v=0;
