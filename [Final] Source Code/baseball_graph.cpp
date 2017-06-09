@@ -448,14 +448,14 @@ if(path==2){
        int min=INT_MAX,min_i=0;
 
        for(int j=0; j<active_v; j++)
-           if(set[j]==false && key[j]<min)
+           if(set[j]==false && key[j]<min && array[j]->vert.if_national_leauge())
                min=key[j],min_i=j;
        int k=min_i;
        set[k]=true;
 
        for(int l=0; l<active_v; l++){
            if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0 && !array[l]->vert.if_american_league())
-               p[l]=k,key[l]=array[k]->weights[l];
+               p[l]=k,key[l]=array[l]->weights[k];
        }
    }
 }
@@ -464,14 +464,14 @@ else if(path==1){
         int min=INT_MAX,min_i=0;
 
         for(int j=0; j<active_v; j++)
-            if(set[j]==false && key[j]<min)
+            if(set[j]==false && key[j]<min && array[j]->vert.if_american_league())
                 min=key[j],min_i=j;
         int k=min_i;
         set[k]=true;
 
         for(int l=0; l<active_v; l++){
             if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0 && array[l]->vert.if_american_league())
-                p[l]=k,key[l]=array[k]->weights[l];
+                p[l]=k,key[l]=array[l]->weights[k];
         }
     }
  }
@@ -486,14 +486,14 @@ else if(path==0){
         set[k]=true;
 
         for(int l=0; l<active_v; l++){
-            if(array[k]->weights[l]&& set[l] == false && array[k]->weights[l] <key[l] && array[k]->weights[l] >=0)
-                p[l]=k,key[l]=array[k]->weights[l];
+            if(array[l]->weights[k]&& set[l] == false && array[l]->weights[k] <key[l] && array[l]->weights[k] >=0)
+                p[l]=k,key[l]=array[l]->weights[k];
         }
     }
  }
 
    int sum=0;
-   for(int i=1; i<active_v; i++){
+   for(int i=0; i<15; i++){
        if(array[i]->weights[p[i]]>=0){
        sum+=array[i]->weights[p[i]];
        }
